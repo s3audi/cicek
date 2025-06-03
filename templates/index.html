@@ -1,0 +1,27 @@
+<section id="projects" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Referans <span class="text-primary">Projelerimiz</span></h2>
+            <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+            <p class="text-gray-600 max-w-2xl mx-auto">Kaliteli işçiliğimizi gösteren son dönem elektrik mühendisliği ve enerji projelerimizden bazılarını inceleyin.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            {% for project in projects %}
+            <div class="project-card bg-white rounded shadow-lg overflow-hidden relative" data-aos="zoom-in" data-aos-delay="100">
+                <img src="{{ project.image_url }}" alt="{{ project.title }}" class="w-full h-64 object-cover object-top">
+                <div class="project-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6">
+                    <h3 class="text-xl font-bold mb-2 text-white">{{ project.title }}</h3>
+                    <p class="text-gray-300 mb-2">{{ project.description }}</p>
+                    <p class="text-primary mb-4">{{ project.completion_time }}</p>
+                    <a href="#" class="text-white flex items-center hover:text-primary transition-colors">
+                        Detayları Gör <i class="ri-arrow-right-line ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center">
+            <a href="#" class="bg-primary text-white px-8 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-all font-medium">Tüm Projeleri Gör</a>
+        </div>
+    </div>
+</section>
