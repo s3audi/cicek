@@ -57,6 +57,10 @@
     return typeof value === "string" && (/^(https?:\/\/|tel:|mailto:|#|\.\/)/i).test(value.trim());
   }
 
+  function updateCompanyLinkTargets() {
+    const target = window.matchMedia("(max-width: 650px)").matches ? "_self" : "_blank";
+    document.querySelectorAll("[data-company-link]").forEach((link) => { link.target = target; });
+  }
   function applyContent(data, ignoreSavedTheme = false) {
     if (data?.partner?.url === "https://www.ortadirek.com.tr") data.partner.url = "http://www.ortadirek.com.tr";
     activeContent = data;
@@ -94,6 +98,7 @@
       }
       if (isSafeLink(value)) element.href = value.trim();
     });
+    updateCompanyLinkTargets();
     const settings = data.settings || {};
     populateThemeVersions(settings.versions || []);
     let chosenVersion = "";
@@ -253,6 +258,7 @@
   }
 
   bindProjectPopup();
+  window.addEventListener("resize", updateCompanyLinkTargets, { passive: true });
 
   document.querySelector(".hero-prev")?.addEventListener("click", () => renderSlide(slideIndex - 1));
   document.querySelector(".hero-next")?.addEventListener("click", () => renderSlide(slideIndex + 1));
@@ -287,6 +293,8 @@
     }
   });
 })();
+
+
 
 
 
