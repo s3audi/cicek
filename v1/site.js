@@ -114,7 +114,9 @@
     projects.forEach((project, index) => {
       const card = document.createElement("a");
       card.className = `project-card${index === 0 ? " project-large" : ""}`;
-      card.href = "#iletisim";
+      card.href = "#projeler";
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-haspopup", "dialog");
       const image = document.createElement("img");
       image.src = isSafeImage(project.image) ? project.image.trim() : "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png";
       image.alt = project.title || "Çiçek Elektrik proje referansı";
@@ -142,6 +144,36 @@
     if (count) count.textContent = `01 — ${String(projects.length).padStart(2, "0")}`;
   }
 
+  function bindProjectPopup() {
+    const grid = document.querySelector(".project-grid");
+    if (!grid) return;
+    let activeCard = null;
+    const popup = document.createElement("div");
+    popup.className = "project-modal";
+    popup.hidden = true;
+    popup.innerHTML = '<div class="project-modal-backdrop"></div><section class="project-modal-panel" role="dialog" aria-modal="true" aria-labelledby="project-modal-title"><button class="project-modal-close" type="button" aria-label="Kapat">×</button><small class="project-modal-category"></small><h3 id="project-modal-title"></h3><p class="project-modal-detail"></p><img class="project-modal-image" alt=""></section>';
+    document.body.append(popup);
+    const close = () => { popup.hidden = true; activeCard = null; };
+    popup.querySelector(".project-modal-close").addEventListener("click", close);
+    popup.querySelector(".project-modal-panel").addEventListener("click", (event) => { if (event.target === event.currentTarget) close(); });
+    popup.querySelector(".project-modal-backdrop").addEventListener("click", close);
+    grid.addEventListener("click", (event) => {
+      const card = event.target.closest(".project-card");
+      if (!card) return;
+      event.preventDefault();
+      if (!popup.hidden && activeCard === card) { close(); return; }
+      activeCard = card;
+      popup.querySelector(".project-modal-category").textContent = card.querySelector(".project-info small")?.textContent || "REFERANS PROJESİ";
+      popup.querySelector(".project-modal-panel h3").textContent = card.querySelector(".project-info strong")?.textContent || "Proje";
+      popup.querySelector(".project-modal-detail").textContent = card.querySelector(".project-info>span>span")?.textContent || "";
+      const preview = popup.querySelector(".project-modal-image");
+      const sourceImage = card.querySelector("img");
+      preview.src = sourceImage?.currentSrc || sourceImage?.src || "";
+      preview.alt = sourceImage?.alt || popup.querySelector(".project-modal-panel h3").textContent;
+      popup.hidden = false;
+    });
+    document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !popup.hidden) close(); });
+  }
   function applySettings(settings) {
     const root = document.documentElement;
     const safeFonts = ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"];
@@ -219,6 +251,8 @@
     if (total) total.textContent = String(slides.length).padStart(2, "0");
   }
 
+  bindProjectPopup();
+
   document.querySelector(".hero-prev")?.addEventListener("click", () => renderSlide(slideIndex - 1));
   document.querySelector(".hero-next")?.addEventListener("click", () => renderSlide(slideIndex + 1));
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -247,3 +281,7 @@
     }
   });
 })();
+
+
+
+
