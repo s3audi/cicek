@@ -58,6 +58,7 @@
   }
 
   function applyContent(data, ignoreSavedTheme = false) {
+    if (data?.partner?.url === "https://www.ortadirek.com.tr") data.partner.url = "http://www.ortadirek.com.tr";
     activeContent = data;
     document.querySelectorAll("[data-content]").forEach((element) => {
       const value = getValue(element.dataset.content, data);
@@ -281,6 +282,7 @@
     }
   });
 })();
+
 
 
 

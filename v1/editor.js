@@ -508,5 +508,7 @@
   } catch (error) {
     showStatus("Tarayıcı kaydı okunamadı; varsayılan içerik gösteriliyor.", true);
   }
+  if (state.partner?.url === "https://www.ortadirek.com.tr") state.partner.url = "http://www.ortadirek.com.tr";
   renderForm();
 })();
+
