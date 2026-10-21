@@ -156,7 +156,7 @@
     document.body.append(popup);
     const close = () => { popup.hidden = true; activeCard = null; };
     popup.querySelector(".project-modal-close").addEventListener("click", close);
-    popup.querySelector(".project-modal-panel").addEventListener("click", (event) => { if (event.target === event.currentTarget) close(); });
+    popup.querySelector(".project-modal-panel").addEventListener("click", close);
     popup.querySelector(".project-modal-backdrop").addEventListener("click", close);
     grid.addEventListener("click", (event) => {
       const card = event.target.closest(".project-card");
@@ -256,6 +256,11 @@
 
   document.querySelector(".hero-prev")?.addEventListener("click", () => renderSlide(slideIndex - 1));
   document.querySelector(".hero-next")?.addEventListener("click", () => renderSlide(slideIndex + 1));
+  document.querySelector(".hero")?.addEventListener("click", (event) => {
+    if (event.target.closest("a, button, .hero-index")) return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    renderSlide(event.clientX - bounds.left >= bounds.width / 2 ? slideIndex + 1 : slideIndex - 1);
+  });
   if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     window.setInterval(() => renderSlide(slideIndex + 1), 7000);
   }
@@ -282,6 +287,7 @@
     }
   });
 })();
+
 
 
 
