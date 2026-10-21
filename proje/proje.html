@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ÇİÇEK ELEKTRİK</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Wave Display Effect with jQuery and CSS3" />
+        <meta name="keywords" content="cıcek,cicekelektrik,projeler,çiçekelektik" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/ui-lightness/jquery-ui-1.8.16.custom.css" />
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link href='http://fonts.googleapis.com/css?family=Terminal+Dosis' rel='stylesheet' type='text/css' />
+		<script id="fullscreenTmpl" type="text/x-jquery-tmpl">
+			<div id="wd-overlay" class="wd-overlay">
+				<div class="wd-element">
+					<span class="wd-close">x close</span>
+                    <div class="wd-nav">
+                        <span class="wd-nav-next">Next</span>
+                        <span class="wd-nav-prev">Previous</span>
+                    </div>
+					<img src="${source}" />
+					<div class="wd-info">
+						<div class="wd-info-title">
+							{{html title}}
+						</div>
+						<div class="wd-info-desc">
+							{{html description}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</script>
+    </head>
+    <body>
+        <div class="container">
+            
+				<div class="clr"></div>
+            </div>
+            <h1>ÇİÇEK ELEKTRİK</h1>
+            <div class="more">
+				<a href="../index.html">ANASAYFA</a>
+		
+			</div>
+            <div id="wd-wrapper" class="wd-wrapper">
+				<div class="wd-slider"></div>
+				<div class="wd-scroll-wrapper">
+					<div class="wd-container">
+						<div class="wd-element">
+							<img src="images/1.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>GALATASARAY ÜNİVERSİTESİ</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>1.175.000 m2 arazi üzerine kurulu olan Devlet Üniversitesi’nde 1000 kVA trafo güç kullanılmış olup orta gerilim kablolama ve trafo merkezi kurulmuştur.</p>
+									
+							  </div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/2.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>AKKOZA KONUTLARI</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>AKKOZA konutları 24 MVA güç için 17 farklı trafo merkezi kurulup , OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. 2,5 milyar dolarlık yatırımıyla : 250 farklı daire 450 bin m2 arsa üzerine 7500 konut inşaatı , proje içinde 210 bin metrekarelik 4 katlı alışveriş merkezi , 113 mağazalık açık alışveriş alanı , okul , hastane , dinlenme alanı ve parkların yanı sıra 20 bin metrekare açık , 5 bin metrekare kapalı alana sahip spor kulübü Club İstanbul , 3 bin metrekare alana sahip 5 bin kişilik Festival Park ve 7 bin metrekarelik Akkoza Park bulunuyor.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/3.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>AKBATI AVM– MAVİ KULE–YEŞİL KULE </h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Akbatı Residences&Akbatı Alışveriş ve Yaşam Merkezi Esenyurt`ta yer almakta olup , 13,5 MVA güç için OG proje , orta gerilim kablolama ve trafo merkezi kurulmuştur. 242.000 metrekare inşaat alanına sahip olan Akbatı Alışveriş ve Yaşam Merkezi`nde 65.542 metrekare net kiralanabilir alan içerisinde; 200`e yakın mağaza, 9 sinema salonu, dünya mutfaklarını buluşturan restoranlar, çocuk oyun, eğitim alanları ve ayrıca 5.000 kişi kapasiteli bir Festival Park yer almaktadır. Akiş`in %100 hisseye sahip olduğu projede , 4 katlı Alışveriş ve Yaşam Merkezi üzerinde bulunan 21 katlı Mavi Kule ve 11 katlı Yeşil Kule`de 1+1 den 348 rezidance mevcuttur. Proje kapsamında yaklaşık 220 milyon dolar civarında yatırım yapılmıştır. </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/4.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>REGNUM ASTRUM TOWERS</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>4800 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. Haramidere`de 34 bin metrekare üzerine inşa edilen, 5 blok ve 1285 daireden oluşan Regnum Astrum Towers projesinde bulunan açık ve kapalı havuz, fitness center, sauna, restoran, çarşı, açık ve kapalı otopark, spor alanları ve çocuk oyun parkları bulunmaktadır.
+                                  
+                                   </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/5.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>DATÇA PERİLİ BAY RESORT</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Datça Perili Bay Resort Hotel`de orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır. Perili Bay Resort kendine ait koyunda, 400 metrelik play, 18 dubleks, 144 standart oda kapasitelidr.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/6.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>KUŞADASI GOLF SPA RESORT</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>1.650.000 metrekare alan üzerine kurulu olup Aydın Kuşadası tatil otelleri bölgesi Söke mevkiinde bulunmakta olup orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır. Otelde 11 adet açık havuz, 1 adet kapalı havuz, 8 adet çocuk havuzu ve kaydıraklı havuz bulunmaktadır.Kuşadası Golf Resort & Spa da İtalyan konseptine göre dizayn edilmiş olan 90 adet dublex oda, olmak üzere 285 adet superior oda, 100 adet klasik suit oda olmak üzere toplam 475 oda kapasitesi bulunmaktadır.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/7.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>NİDYA HOTEL GALATAPORT</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Nidya Hotel Galataport`un tüm AG & OG elektrik tesisatı yapılmıştır. 120 otel odası kapasiteli, spa&fitness, toplantı odaları ve restaurantlar mevcuttur.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/8.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>BODRUM HOLIDAY RESORT&SPA </h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>414 yataklı Bodrum bölgesindeki otel için 2500 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/9.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+                                <h2>SİNPAŞ GYO - FER YAPI TOWER</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Yeni ofis konsepti ile lanse edilen projede,30 katlı tek blokta 2500 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi inşaat yapılmıştır.Parsel Alanı: 5.894 metrekare İnşaat Alanı: 42.000 metrekare Proje Tipi: Ofis-Çarşı 213 Bağımsız Bölüm </p> 
+                                    
+                              <p> Konum: Bomonti / Şişli  </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/10.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>TEMA PARK</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Temapark İstanbul 80 MVA güç talebiyle OG proje, orta gerilim kablolama ve trafo merkezi imalatı yapılacaktır. 3 milyar euro bedeli ile Toplu Konut İdaresi Başkanlığı (TOKİ) arsası üzerinde inşa edilecek olan Temapark İstanbul projesi 250 bin metrekare inşaat alanına sahip. Halkalı Temapark İstanbul projesi 4 bin 26 adet konuttan meydana geliyor. </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/11.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>İnnovia 1-2-3-4-5</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Yeşil İnşaat`ın Beylikdüzü`ndeki Innovia Projesi 34.800 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır. 375.000 metrekare alan üzerinde 5 etaptan oluşmakta olup, 14.000 konut, işyerleri, otel ve AVM`yi kapsamaktadır. Bu projenin yatırım değeri 900 milyon TL`yi aşmaktadır.Yaklaşık 30.000 kişinin yaşayacağı projedir. 
+                                  
+                                  </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/12.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>AUTOPIA</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Otomobil fuarı olarak tasarlanan toplam 150 milyon dolarlık yatırımla, 117.000 metrekare satılabilinir ve kiralanabilir alana ve 470 adet mağazaya sahip olacak AUTOPIA 8 MVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/13.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>Beyaz Kule </h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Beyaz Kule`de 1600 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur.Yaklaşık 3 dönüm arazi üzerinde gerçekleştirilmekte olan ve 100 rezidanstan Akbatı Beyaz Kule`nin altında yer alan butik restoran ve butik ticari alanlar açık olacak kapalı sosyal projede yer almaktadır.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/14.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>MARMARA PARK</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Marmara Park Alışveriş Merkezi 16.800 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır. Yatırım hacmi 220 milyon Euro olup toplam 100.000 metrekarelik kiralanabilir alan ile Bauhaus Yapı Marketi ve Real Hipermarketi de kapsayan Marmara Park , 200`den fazla mağaza ile 4000 araçlık otopark alanı mevcuttur.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/15.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>AVCILAR PARK</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Avcılar Park 2850 kVA güç için OG proje orta gerilim kablolama ve trafo merkezi yapılmıştır. Toplam 39.000 metrekarelik alanlı 19 blokta 275 daireyle birlikte 50 mağaza ve 1 süpermarketin bulunduğu projedir.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/16.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>YILDIZ GAZ ARMATÜRLERİ</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>18.000 metrekare kapalı alana sahip fabrika binası 2000 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/17.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>SOLARKENT</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>28.000 metrekarelik alanda projelendirilen Solarkent`te 3000 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır. SOLARKENT 31 katlı 4 bloktan ve 10 farklı daire seçeneğinden oluşuyor. 866 adet konutta içinde güneş santralinin bulunduğu ve güneş enerjisinden faydalanarak elektriğin sağlandığı ilk proje , C1 Tipi Trafo uygulaması yapan ilk proje, üstü açılabilir yarı olimpik yüzme havuzu ile de konut projeleri arasında konusunda ikincidir. Türkiye`nin ortalama yıllık toplam güneşlenme süresi, 2640 saat (günlük toplam 7,2 saat), ortalama toplam ışınım şiddeti ise 1311 kWh/m2 yıl(günlük toplam 3,6 kWh/m2) olarak tespit edilmiştir. Bu gölgeleme alanıüzerinde yer alacak ve her biri 220 w olan panellerden 2600 adet kullanılarak, yılda ortalama 780.000 kWh enerji üretilmektedir. Bu sayede ortalama 550 kW kurulu gücü olan santral kurulması planlanmaktadır. Sitede Solar Club spor ve yaşam ayrıcalığı,Fitness Center, Yüzme Havuzları,SPA Merkezi,Cafe & Bistro, basketbol ve voleybol sahaları,mini futbol sahası,tenis kortu,gündelik dinlence alanları, güneş enerjisinden üretilen 550kVA elektrik enerjisi ile site aidatlarında büyük tasarruf. Tüm daire ve ortak alanları destekleyen kesintisiz enerji sistemli projedir.
+                                   </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/18.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>BEYMED GÖZ HASTANESİ</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>12.000 metrekare kapalı alana inşaatı yapılan hastane için 1000kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/19.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>BİKA OTO SERVİS</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>16.000 metrekare kapalı alana sahip BİKA için 1600kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/20.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>YILMAZ KİMYA</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>26.000 metrekare kapalı alana sahip ofis, depo ve sanayi alanlı fabrika binası için 2500kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır.</p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/21.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>KİLER LOJİSTİK MERKEZİ
+                                   </h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Kiler Lojistik Merkezi için 1600 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır. Esenyurt Depo ve Antrepo Projesi Esenyurt Haramidere`de yer almaktadır. Yaklaşık 100.000 metrekare büyüklüğündeki inşaat alanında Lojistik Depo ve Antrepo Depo inşaatının yanı sıra Kiler Grubun yeni Genel Müdürlük binası da bulunmaktadır. Lojistik depo kapasitesi 100 tıra ve 500 mağazaya hizmet vermeye başlamıştır. </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/22.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>MESA MESKEN BAHÇEŞEHİR EVLERİ</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Bahçeşehir Evleri Projesi`nde AG talep ve OG trafo merkezi imalatları yapılmıştır. 17.858 metrekarelik alan üzerine inşaa edilecek olan 2 adet blok, giriş +23 kat olup 182 adet konuttan oluşacaktır. Site içerisinde açık yüzme havuzu, sosyal tesis, çocuk oyun alanları, tenis ve basketbol sahası olup, blokların bodrum katlarında her daire için 1 açık, 1 kapalı otopark ve 1 adet depo mevcut olacaktır.
+                                     </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/23.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>CITY CENTER ESENYURT</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>City Center Esenyurt için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. İçerisinde bulunan residenslar ile yüksek konforlu bir yaşam sunarken, ayrıcalıkların sadece standart olduğu deluxe ve Premium konseptli ofisleri ile iş merkezi tanımını ticaretin yeni merkezine dönüştürürken dünyaca ünlü markaların yer aldığı alışveriş merkezi ile de tüm sosyal ihtiyaçların merkez noktasını belirtiyor. City Center adı üstünde bir şehir merkezi kamu hizmetleri ile vatandaşları bir araya getirecek bir fikir bu fikrin arkasında Esenyurt Belediye Başkanlığı, Esenyurt Kaymakamlığı ve Esenyurt İlçe Emniyet müdürlüğü gücü ve hizmet anlayışı yatıyor.
+                                  
+                                    </p>
+								</div>
+							</div>
+						</div>
+						<div class="wd-element">
+							<img src="images/24.jpg" />
+							<div class="wd-info">
+								<div class="wd-info-title">
+									<h2>QENT İSTİNYE</h2>
+								</div>
+								<div class="wd-info-desc">
+									<p>Qent İstinye 3 bin 70 metrekarelik alan üzerine yayılıyor. Projede 1+1, 2+1, 3+1 ve 4+1 konut tipleri bulunuyor.Qent İstinye; Boğaziçi Köprüsü`ne ve Fatih Sultan Mehmet Köprüsü`ne yakın konumda inşa ediliyor.	Qent İstinye 21 konuttan meydana geliyor. Projedeki konutların iç tasarımlarında Porsche Desing Studio imzası bulunuyor. Qent İstinye`nin sosyal alanları arasında; sauna, açık ve kapalı yüzme havuzları, fitness salonu, misafir otoparkları ve bireysel kapalı otoparklar bulunuyor.</p>
+								</div>
+							</div>
+						</div>
+						
+                        
+					</div>
+				</div>
+			</div>
+        </div>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>
+		<script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
+		<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+		<script type="text/javascript" src="js/jquery.sinusoid.js"></script>
+        <script type="text/javascript">
+			$(function() {
+			
+				$('#wd-wrapper').sinusoid({
+					minImgW				: 80,
+					maxImgW				: 130,
+					minImgAngle			: -20,
+					maxImgAngle			: 20,
+					leftFactor			: 60,
+					sinusoidFunction 	: {
+						A	: 70,
+						T 	: 1700,
+						P	: 0
+					}
+				});
+			
+			});
+		</script>
+    </body>
+</html>	

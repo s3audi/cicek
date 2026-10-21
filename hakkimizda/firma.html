@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <title>Çiçek Elektrik</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="Item Blur Effect with CSS3 and jQuery - Using Box Shadows, Transform and Transitions" />
+        <meta name="keywords" content="blur, css3, transition, jquery, box shadow, text shadow, articles, scale, transform, animation" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico"> 
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/stylefirma.css" />
+<script src="js/modernizr.custom.34978.js"></script>	
+<style type="text/css">
+<!--
+#apDiv1 {
+	position:absolute;
+	left:1280px;
+	top:36px;
+	width:580px;
+	height:259px;
+	z-index:1;
+}
+-->
+</style>
+    </head>
+<body>
+        <div class="container">
+            <div class="header">
+                <a href="http://www.ortadirek.com.tr">
+                    <strong>&laquo; Orta Direk</strong> Türkiye`nin En Hızlı Direk İmalatı
+                </a>
+              <div class="clr"></div>
+          </div>
+		  <header>
+				
+				 <div class="content">
+                <ul class="bmenu">
+                    <li><a href="../index.html">Anasayfa</a></li>
+                    <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                    <li><a href="../proje.html">Projelerimiz</a></li>
+                    <li><a href="iletisim.html">İletişim</a></li>
+              </ul>
+              
+              </div>
+            
+          </header>
+        </div>
+        </header>
+<section class="ib-container" id="ib-container">
+				<article>
+					<header>
+						<h3><a target="_blank" href="https://www.google.com.tr">Kalite birinci önceliğimizdir...</a></h3>
+						<span><font color="#006600">FIRMAMIZ HAKKINDA</font></span>
+					</header>
+					<p>Çiçek Elektrik; 1985 yılında faaliyetlerine başlamıştır. Faaliyet alanları kapsamındaki konularla ilgili belirlenmiş Avrupa ve Dünya standartlarından taviz vermeden hizmet sunmaktadır. Konusunda uzman bir kadroya sahip olan firmamız, gelişen teknolojik yeniliklere araştırma ve eğitime önem vererek uyum sağlayarak bilinçli bir sorumluluk anlayışıyla hizmet vermektedir. Hizmetin birey üzerinde yoğunlaşmasına önem veren firmamız, müşteri odaklı hizmet anlayışını hedef almıştır.</p>
+				</article>
+				
+				
+					
+			</section>
+        </div>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				
+				var $container	= $('#ib-container'),
+					$articles	= $container.children('article'),
+					timeout;
+				
+				$articles.on( 'mouseenter', function( event ) {
+						
+					var $article	= $(this);
+					clearTimeout( timeout );
+					timeout = setTimeout( function() {
+						
+						if( $article.hasClass('active') ) return false;
+						
+						$articles.not( $article.removeClass('blur').addClass('active') )
+								 .removeClass('active')
+								 .addClass('blur');
+						
+					}, 65 );
+					
+				});
+				
+				$container.on( 'mouseleave', function( event ) {
+					
+					clearTimeout( timeout );
+					$articles.removeClass('active blur');
+					
+				});
+			
+			});
+		</script>
+    </body>
+</html>
