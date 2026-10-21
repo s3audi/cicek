@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "title": "Endüstriyel Elektrik Panosu",
+        "description": "Otomotiv fabrikası için özel tasarım panolar",
+        "completion_time": "3 ayda tamamlandı",
+        "image_url": "https://readdy.ai/api/search-image?query=industrial%2520electrical%2520panel%2520installation%252C%2520high%2520voltage%2520switchgear%252C%2520professional%2520electrical%2520engineering%2520work%252C%2520blue%2520and%2520orange%2520color%2520scheme%252C%2520clean%2520industrial%2520environment%252C%2520high%2520quality%2520realistic%2520photo&width=400&height=300&seq=3&orientation=landscape"
+    },
+    {
+        "id": 2,
+        "title": "Trafo Merkezi Kurulumu",
+        "description": "Alışveriş merkezi için 2500 kVA trafo merkezi",
+        "completion_time": "2 ayda tamamlandı",
+        "image_url": "https://readdy.ai/api/search-image?query=transformer%2520substation%2520installation%252C%2520power%2520distribution%2520equipment%252C%2520professional%2520electrical%2520engineering%2520work%252C%2520blue%2520and%2520orange%2520color%2520scheme%252C%2520clean%2520industrial%2520environment%252C%2520high%2520quality%2520realistic%2520photo&width=400&height=300&seq=4&orientation=landscape"
+    },
+    {
+        "id": 3,
+        "title": "Endüstriyel Aydınlatma",
+        "description": "Tekstil fabrikası için LED aydınlatma sistemi",
+        "completion_time": "1 ayda tamamlandı",
+        "image_url": "https://readdy.ai/api/search-image?query=industrial%2520lighting%2520system%2520installation%252C%2520factory%2520ceiling%2520lights%252C%2520professional%2520electrical%2520engineering%2520work%252C%2520blue%2520and%2520orange%2520color%2520scheme%252C%2520clean%2520industrial%2520environment%252C%2520high%2520quality%2520realistic%2520photo&width=400&height=300&seq=5&orientation=landscape"
+    },
+    {
+        "id": 4,
+        "title": "Jeneratör Kurulumu",
+        "description": "Hastane için yedek güç sistemi",
+        "completion_time": "3 haftada tamamlandı",
+        "image_url": "https://readdy.ai/api/search-image?query=generator%2520installation%2520for%2520backup%2520power%252C%2520industrial%2520generator%2520system%252C%2520professional%2520electrical%2520engineering%2520work%252C%2520blue%2520and%2520orange%2520color%2520scheme%252C%2520clean%2520industrial%2520environment%252C%2520high%2520quality%2520realistic%2520photo&width=400&height=300&seq=6&orientation=landscape"
+    },
+    {
+        "id": 5,
+        "title": "Yıldırımdan Korunma",
+        "description": "İş merkezi için paratoner sistemi",
+        "completion_time": "2 haftada tamamlandı",
+        "image_url": "https://readdy.ai/api/search-image?query=lightning%2520protection%2520system%2520installation%2520on%2520building%2520roof%252C%2520professional%2520electrical%2520engineering%2520work%252C%2520blue%2520and%2520orange%2520color%2520scheme%252C%2520clean%2520industrial%2520environment%252C%2520high%2520quality%2520realistic%2520photo&width=400&height=300&seq=7&orientation=landscape"
+    },
+    {
+        "id": 6,
+        "title": "Kablo Kanalı Kurulumu",
+        "description": "Veri merkezi için yapılandırılmış kablolama",
+        "completion_time": "1 ayda tamamlandı",
+        "image_url": "https://readdy.ai/api/search-image?query=cable%2520tray%2520installation%2520in%2520industrial%2520facility%252C%2520professional%2520electrical%2520engineering%2520work%252C%2520blue%2520and%2520orange%2520color%2520scheme%252C%2520clean%2520industrial%2520environment%252C%2520high%2520quality%2520realistic%2520photo&width=400&height=300&seq=8&orientation=landscape"
+    }
+]
