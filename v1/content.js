@@ -1,6 +1,6 @@
 window.CICEK_SITE_CONTENT = {
-  _schemaVersion: 2,
-  brand: { name: "ÇİÇEK", sub: "ELEKTRİK", logo: "", logoWidth: 150 },
+  _schemaVersion: 3,
+  brand: { name: "ÇİÇEK", sub: "ELEKTRİK", logo: "assets/cicek-logo.png", logoWidth: 150 },
   settings: {
     displayFont: "Segoe UI",
     bodyFont: "Segoe UI",

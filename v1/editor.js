@@ -485,6 +485,7 @@
           state.projects.items = items;
         }
         const defaultImage = defaults.hero.slides[0].image;
+        if (!parsed.brand?.logo) state.brand.logo = defaults.brand.logo;
         if (/^assets\/(?:3\.jpg|projects\/)/i.test(state.hero.image || "")) state.hero.image = defaultImage;
         (state.hero.slides || []).forEach((slide) => { if (/^assets\/(?:3\.jpg|projects\/)/i.test(slide.image || "")) slide.image = defaultImage; });
         (state.projects.items || []).forEach((project) => { if (/^assets\/projects\//i.test(project.image || "")) project.image = defaultImage; });

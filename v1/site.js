@@ -41,6 +41,7 @@
       migrated.projects.items = items;
     }
     const defaultImage = content.hero.slides[0].image;
+    if (!saved?.brand?.logo) migrated.brand.logo = content.brand.logo;
     if (/^assets\/(?:3\.jpg|projects\/)/i.test(migrated.hero.image || "")) migrated.hero.image = defaultImage;
     (migrated.hero.slides || []).forEach((slide) => { if (/^assets\/(?:3\.jpg|projects\/)/i.test(slide.image || "")) slide.image = defaultImage; });
     (migrated.projects.items || []).forEach((project) => { if (/^assets\/projects\//i.test(project.image || "")) project.image = defaultImage; });
