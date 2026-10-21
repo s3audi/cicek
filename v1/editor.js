@@ -508,6 +508,13 @@
   } catch (error) {
     showStatus("Tarayıcı kaydı okunamadı; varsayılan içerik gösteriliyor.", true);
   }
+  state.settings ||= {};
+  if (!Number.isFinite(Number(state.settings.fontScale))) state.settings.fontScale = defaults.settings.fontScale || 1;
+  state.settings.versions ||= [];
+  const v4Theme = defaults.settings.versions?.find((version) => version.id === "v4");
+  if (v4Theme && !state.settings.versions.some((version) => version.id === "v4")) {
+    state.settings.versions.push(JSON.parse(JSON.stringify(v4Theme)));
+  }
   if (state.partner?.url === "https://www.ortadirek.com.tr") state.partner.url = "http://www.ortadirek.com.tr";
   renderForm();
 })();
