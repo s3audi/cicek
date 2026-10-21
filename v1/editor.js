@@ -13,13 +13,21 @@
       { key: "brand.logo", label: "Logo görseli", type: "image", hint: "İnternet adresi yazın veya bilgisayarınızdan PNG / JPG / WebP seçin." },
       { key: "brand.name", label: "Marka adı" }, { key: "brand.sub", label: "Alt satır" }
     ]},
-    { title: "AÇILIŞ EKRANI", fields: [
-      { key: "hero.image", label: "Ana görsel", type: "image", hint: "URL ya da bilgisayarınızdan görsel seçin." },
-      { key: "hero.eyebrow", label: "Üst küçük başlık", type: "textarea", full: true },
-      { key: "hero.titleBefore", label: "Başlık — ilk bölüm" }, { key: "hero.titleAccent", label: "Vurgulu bölüm" },
-      { key: "hero.titleAfter", label: "Başlık — devamı", type: "textarea" },
-      { key: "hero.copy", label: "Açıklama", type: "textarea", full: true },
-      { key: "hero.captionTitle", label: "Görsel etiketi" }, { key: "hero.captionDetail", label: "Görsel alt yazısı" }
+    { title: "AÇILIŞ SLIDER’I", slides: true },
+    { title: "TEMA VE GÖRÜNÜM", themeSettings: true, fields: [
+      { key: "settings.displayFont", label: "Başlık font ailesi", type: "select", options: ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"] },
+      { key: "settings.bodyFont", label: "Gövde font ailesi", type: "select", options: ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"] },
+      { key: "settings.heroTitleFont", label: "Slider başlık fontu", type: "select", options: ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"] },
+      { key: "settings.heroTextFont", label: "Slider metin fontu", type: "select", options: ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"] },
+      { key: "settings.heroTitleSize", label: "Slider başlık boyutu (px)", type: "number" },
+      { key: "settings.heroTextSize", label: "Slider açıklama boyutu (px)", type: "number" },
+      { key: "settings.brandLogoWidth", label: "Üst logo genişliği (px)", type: "number" },
+      { key: "settings.footerLogoWidth", label: "Footer logo genişliği (px)", type: "number" },
+      { key: "settings.semtaLogoWidth", label: "Semtasoft logo genişliği (px)", type: "number" },
+      { key: "settings.ink", label: "Ana metin rengi", type: "color" },
+      { key: "settings.forest", label: "Kurumsal koyu renk", type: "color" },
+      { key: "settings.orange", label: "Vurgu rengi", type: "color" },
+      { key: "settings.paper", label: "Açık zemin rengi", type: "color" }
     ]},
     { title: "HAKKIMIZDA", fields: [
       { key: "about.since", label: "Kuruluş satırı" }, { key: "about.eyebrow", label: "Küçük başlık" },
@@ -36,15 +44,9 @@
       { key: "services.items.2.title", label: "Hizmet 3 — başlık", type: "textarea" }, { key: "services.items.2.copy", label: "Hizmet 3 — açıklama", type: "textarea" },
       { key: "services.items.3.title", label: "Hizmet 4 — başlık", type: "textarea" }, { key: "services.items.3.copy", label: "Hizmet 4 — açıklama", type: "textarea" }
     ]},
-    { title: "SEÇİLİ PROJELER", fields: [
+    { title: "PROJE REFERANSLARI", projects: true, fields: [
       { key: "projects.eyebrow", label: "Bölüm üst başlığı" }, { key: "projects.action", label: "Bağlantı yazısı" },
-      { key: "projects.titleBefore", label: "Bölüm başlığı — ilk bölüm" }, { key: "projects.titleAccent", label: "Vurgulu bölüm" },
-      ...[0, 1, 2].flatMap((index) => [
-        { key: `projects.items.${index}.image`, label: `Proje ${index + 1} — görsel`, type: "image", full: true },
-        { key: `projects.items.${index}.category`, label: `Proje ${index + 1} — tür / konum` },
-        { key: `projects.items.${index}.title`, label: `Proje ${index + 1} — adı` },
-        { key: `projects.items.${index}.detail`, label: `Proje ${index + 1} — kısa bilgi`, type: "textarea", full: true }
-      ])
+      { key: "projects.titleBefore", label: "Bölüm başlığı — ilk bölüm" }, { key: "projects.titleAccent", label: "Vurgulu bölüm" }
     ]},
     { title: "GRUP ŞİRKETİ", fields: [
       { key: "partner.eyebrow", label: "Üst başlık" }, { key: "partner.title", label: "Şirket adı" },
@@ -57,7 +59,13 @@
       { key: "contact.address", label: "Adres", type: "textarea", full: true },
       { key: "contact.phone", label: "Telefon" }, { key: "contact.fax", label: "Faks" },
       { key: "contact.mapUrl", label: "Harita bağlantısı", full: true },
-      { key: "footer.copyright", label: "Telif satırı", full: true }
+      { key: "footer.address", label: "Footer adresi", type: "textarea", full: true },
+      { key: "footer.link1Text", label: "Footer bağlantı 1 — yazı" }, { key: "footer.link1Url", label: "Footer bağlantı 1 — adres" },
+      { key: "footer.link2Text", label: "Footer bağlantı 2 — yazı" }, { key: "footer.link2Url", label: "Footer bağlantı 2 — adres" },
+      { key: "footer.link3Text", label: "Footer bağlantı 3 — yazı" }, { key: "footer.link3Url", label: "Footer bağlantı 3 — adres" },
+      { key: "footer.copyright", label: "Telif satırı", full: true },
+      { key: "footer.semtaText", label: "Semtasoft imza yazısı" }, { key: "footer.semtaUrl", label: "Semtasoft bağlantı adresi" },
+      { key: "footer.semtaLogo", label: "Semtasoft logosu", type: "image", full: true, hint: "İsteğe bağlı logo bağlantısı veya yerel görsel seçin." }
     ]}
   ];
 
@@ -68,13 +76,126 @@
   function set(path, value) {
     const keys = path.split(".");
     const last = keys.pop();
-    const target = keys.reduce((object, key) => object[key], state);
+    const target = keys.reduce((object, key, index) => {
+      if (object[key] == null) object[key] = /^\d+$/.test(keys[index + 1] || "") ? [] : {};
+      return object[key];
+    }, state);
     target[last] = value;
+  }
+
+  function renderSlides(group) {
+    const section = document.createElement("section");
+    section.className = "editor-group";
+    const heading = document.createElement("div");
+    heading.className = "group-title";
+    const line = document.createElement("i");
+    const title = document.createElement("span");
+    title.textContent = group.title;
+    heading.append(line, title);
+    const body = document.createElement("div");
+    body.className = "group-body slide-editor-list";
+    const slides = state.hero.slides || (state.hero.slides = []);
+    slides.forEach((slide, index) => {
+      const card = document.createElement("div");
+      card.className = "slide-editor-card field full";
+      const cardHead = document.createElement("div");
+      cardHead.className = "slide-editor-heading";
+      const label = document.createElement("strong");
+      label.textContent = `SLAYT ${String(index + 1).padStart(2, "0")}`;
+      cardHead.append(label);
+      if (slides.length > 1) {
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "slide-remove";
+        remove.textContent = "Slaytı sil";
+        remove.addEventListener("click", () => { slides.splice(index, 1); renderForm(); });
+        cardHead.append(remove);
+      }
+      card.append(cardHead);
+      [
+        { key: `hero.slides.${index}.image`, label: "Arka plan görseli", type: "image", full: true, hint: "URL girin veya bilgisayarınızdan görsel seçin." },
+        { key: `hero.slides.${index}.eyebrow`, label: "Üst küçük başlık", type: "textarea", full: true },
+        { key: `hero.slides.${index}.titleBefore`, label: "Başlık — ilk bölüm" },
+        { key: `hero.slides.${index}.titleAccent`, label: "Vurgulu bölüm" },
+        { key: `hero.slides.${index}.titleAfter`, label: "Başlık — devamı", type: "textarea", full: true },
+        { key: `hero.slides.${index}.copy`, label: "Açıklama", type: "textarea", full: true },
+        { key: `hero.slides.${index}.captionTitle`, label: "Görsel etiketi" },
+        { key: `hero.slides.${index}.captionDetail`, label: "Görsel alt yazısı" }
+      ].forEach((field) => card.append(makeField(field)));
+      body.append(card);
+    });
+    const add = document.createElement("button");
+    add.type = "button";
+    add.className = "button primary slide-add";
+    add.textContent = "+ Yeni slayt ekle";
+    add.disabled = slides.length >= 8;
+    add.addEventListener("click", () => {
+      slides.push({ image: "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png", eyebrow: "YENİ BAŞLIK", titleBefore: "Yeni", titleAccent: "başlık", titleAfter: "", copy: "Açıklama metninizi yazın.", captionTitle: "ÇİÇEK ELEKTRİK", captionDetail: "" });
+      renderForm();
+    });
+    body.append(add);
+    section.append(heading, body);
+    return section;
+  }
+
+  function renderProjects(group) {
+    const section = document.createElement("section");
+    section.className = "editor-group";
+    const heading = document.createElement("div");
+    heading.className = "group-title";
+    const line = document.createElement("i");
+    const title = document.createElement("span");
+    title.textContent = group.title;
+    heading.append(line, title);
+    const body = document.createElement("div");
+    body.className = "group-body project-editor-list";
+    group.fields.forEach((field) => body.append(makeField(field)));
+    const projects = state.projects.items || (state.projects.items = []);
+    projects.forEach((project, index) => {
+      const card = document.createElement("details");
+      card.className = "project-editor-card field full";
+      if (index < 3) card.open = true;
+      const summary = document.createElement("summary");
+      summary.className = "project-editor-heading";
+      const projectName = document.createElement("strong");
+      projectName.textContent = `${String(index + 1).padStart(2, "0")} · ${project.title || "Yeni referans"}`;
+      summary.append(projectName);
+      const remove = document.createElement("button");
+      remove.type = "button";
+      remove.className = "slide-remove";
+      remove.textContent = "Sil";
+      remove.addEventListener("click", (event) => { event.preventDefault(); event.stopPropagation(); projects.splice(index, 1); renderForm(); });
+      summary.append(remove);
+      card.append(summary);
+      [
+        { key: `projects.items.${index}.image`, label: "Referans görseli", type: "image", full: true },
+        { key: `projects.items.${index}.category`, label: "Kategori / konum" },
+        { key: `projects.items.${index}.title`, label: "Proje adı" },
+        { key: `projects.items.${index}.detail`, label: "Açıklama", type: "textarea", full: true }
+      ].forEach((field) => card.append(makeField(field)));
+      body.append(card);
+    });
+    const add = document.createElement("button");
+    add.type = "button";
+    add.className = "button primary slide-add";
+    add.textContent = "+ Referans ekle";
+    add.addEventListener("click", () => {
+      projects.push({ category: "REFERANS PROJESİ", title: "Yeni proje", detail: "Proje açıklamasını yazın.", image: "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png" });
+      renderForm();
+    });
+    body.append(add);
+    section.append(heading, body);
+    return section;
   }
 
   function merge(target, source) {
     Object.keys(source || {}).forEach((key) => {
-      if (source[key] && typeof source[key] === "object" && !Array.isArray(source[key])) {
+      if (Array.isArray(source[key]) && Array.isArray(target[key])) {
+        source[key].forEach((value, index) => {
+          if (value && typeof value === "object" && !Array.isArray(value) && target[key][index] && typeof target[key][index] === "object") merge(target[key][index], value);
+          else target[key][index] = value;
+        });
+      } else if (source[key] && typeof source[key] === "object" && !Array.isArray(source[key])) {
         if (!target[key] || typeof target[key] !== "object") target[key] = {};
         merge(target[key], source[key]);
       } else target[key] = source[key];
@@ -188,8 +309,14 @@
       return wrapper;
     }
 
-    const input = document.createElement(field.type === "textarea" ? "textarea" : "input");
-    if (input instanceof HTMLInputElement) input.type = "text";
+    const input = document.createElement(field.type === "textarea" ? "textarea" : field.type === "select" ? "select" : "input");
+    if (input instanceof HTMLInputElement) input.type = ["number", "color"].includes(field.type) ? field.type : "text";
+    if (input instanceof HTMLSelectElement) field.options.forEach((value) => {
+      const option = document.createElement("option");
+      option.value = value;
+      option.textContent = value;
+      input.append(option);
+    });
     input.id = fieldId;
     input.dataset.field = field.key;
     input.value = get(field.key) || "";
@@ -198,9 +325,80 @@
     return wrapper;
   }
 
+  function renderThemeSettings(group) {
+    const section = document.createElement("section");
+    section.className = "editor-group";
+    const heading = document.createElement("div");
+    heading.className = "group-title";
+    const line = document.createElement("i");
+    const title = document.createElement("span");
+    title.textContent = group.title;
+    heading.append(line, title);
+    const body = document.createElement("div");
+    body.className = "group-body";
+    group.fields.forEach((field) => body.append(makeField(field)));
+    const saveField = document.createElement("div");
+    saveField.className = "field full version-save-row";
+    const label = document.createElement("label");
+    label.className = "field-label";
+    label.textContent = "Bu ayarları adlandırıp sürüm olarak kaydedin";
+    const controls = document.createElement("div");
+    controls.className = "image-line";
+    const name = document.createElement("input");
+    name.type = "text";
+    name.placeholder = "Örn. V2 — Açık tema";
+    name.setAttribute("aria-label", "Tema sürüm adı");
+    const save = document.createElement("button");
+    save.type = "button";
+    save.className = "button primary";
+    save.textContent = "Sürüm kaydet";
+    save.addEventListener("click", () => {
+      const versionName = name.value.trim();
+      if (!versionName) { showStatus("Önce sürüm adı yazın.", true); name.focus(); return; }
+      const settings = JSON.parse(JSON.stringify(state.settings));
+      delete settings.versions;
+      state.settings.versions ||= [];
+      if (state.settings.versions.length >= 12) { showStatus("En fazla 12 tema sürümü kaydedilebilir.", true); return; }
+      state.settings.versions.push({ id: `theme-${Date.now()}`, name: versionName, settings });
+      renderForm();
+      showStatus(`“${versionName}” site altındaki görünüm menüsüne eklendi.`);
+    });
+    controls.append(name, save);
+    saveField.append(label, controls);
+    body.append(saveField);
+    const versionList = document.createElement("div");
+    versionList.className = "field full saved-version-list";
+    const versionLabel = document.createElement("span");
+    versionLabel.className = "field-label";
+    versionLabel.textContent = "Kayıtlı görünüm sürümleri";
+    versionList.append(versionLabel);
+    (state.settings.versions || []).forEach((version, index) => {
+      const row = document.createElement("div");
+      row.className = "saved-version-row";
+      const versionName = document.createElement("span");
+      versionName.textContent = version.name;
+      row.append(versionName);
+      if (state.settings.versions.length > 1) {
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "slide-remove";
+        remove.textContent = "Sil";
+        remove.addEventListener("click", () => { state.settings.versions.splice(index, 1); renderForm(); });
+        row.append(remove);
+      }
+      versionList.append(row);
+    });
+    body.append(versionList);
+    section.append(heading, body);
+    return section;
+  }
+
   function renderForm() {
     form.replaceChildren();
     groups.forEach((group) => {
+      if (group.slides) { form.append(renderSlides(group)); return; }
+      if (group.themeSettings) { form.append(renderThemeSettings(group)); return; }
+      if (group.projects) { form.append(renderProjects(group)); return; }
       const section = document.createElement("section");
       section.className = "editor-group";
       const heading = document.createElement("div");
@@ -269,7 +467,30 @@
 
   try {
     const saved = localStorage.getItem(storageKey);
-    if (saved) state = merge(JSON.parse(JSON.stringify(defaults)), JSON.parse(saved));
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed._schemaVersion === defaults._schemaVersion) state = parsed;
+      else {
+        state = merge(JSON.parse(JSON.stringify(defaults)), parsed);
+        if (Array.isArray(parsed.projects?.items)) {
+          const items = JSON.parse(JSON.stringify(defaults.projects.items));
+          parsed.projects.items.forEach((project, index) => {
+            const normalizedTitle = String(project.title || "").toLocaleLowerCase("tr-TR");
+            let targetIndex = items.findIndex((item) => String(item.title || "").toLocaleLowerCase("tr-TR") === normalizedTitle);
+            if (targetIndex < 0 && normalizedTitle) targetIndex = items.findIndex((item) => String(item.title || "").toLocaleLowerCase("tr-TR").split(" ")[0] === normalizedTitle.split(" ")[0]);
+            if (targetIndex < 0) targetIndex = index;
+            if (items[targetIndex]) items[targetIndex] = { ...items[targetIndex], ...project };
+            else items.push(project);
+          });
+          state.projects.items = items;
+        }
+        const defaultImage = defaults.hero.slides[0].image;
+        if (/^assets\/(?:3\.jpg|projects\/)/i.test(state.hero.image || "")) state.hero.image = defaultImage;
+        (state.hero.slides || []).forEach((slide) => { if (/^assets\/(?:3\.jpg|projects\/)/i.test(slide.image || "")) slide.image = defaultImage; });
+        (state.projects.items || []).forEach((project) => { if (/^assets\/projects\//i.test(project.image || "")) project.image = defaultImage; });
+        state._schemaVersion = defaults._schemaVersion;
+      }
+    }
   } catch (error) {
     showStatus("Tarayıcı kaydı okunamadı; varsayılan içerik gösteriliyor.", true);
   }
