@@ -375,8 +375,21 @@
     (state.settings.versions || []).forEach((version, index) => {
       const row = document.createElement("div");
       row.className = "saved-version-row";
-      const versionName = document.createElement("span");
+      const versionName = document.createElement("button");
+      versionName.type = "button";
+      versionName.className = "saved-version-preview";
       versionName.textContent = version.name;
+      versionName.title = "Bu görünüm ayarlarını yükleyip önizleyin";
+      versionName.addEventListener("click", () => {
+        state.settings = { ...state.settings, ...JSON.parse(JSON.stringify(version.settings)), versions: state.settings.versions };
+        form.querySelectorAll('[data-field^="settings."]').forEach((input) => {
+          const path = input.dataset.field.slice("settings.".length);
+          input.value = get(`settings.${path}`) ?? "";
+        });
+        saveDraft(true);
+        showStatus(`“${version.name}” yüklendi; site önizlemesi açılıyor.`);
+        document.getElementById("preview-button").click();
+      });
       row.append(versionName);
       if (state.settings.versions.length > 1) {
         const remove = document.createElement("button");

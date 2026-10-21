@@ -3,7 +3,7 @@ window.CICEK_SITE_CONTENT = {
   "brand": {
     "name": "ÇİÇEK",
     "sub": "ELEKTRİK",
-    "logo": "assets/cicek-logo.png",
+    "logo": "assets/ciceklogov2a.png",
     "logoWidth": 150
   },
   "settings": {
@@ -13,8 +13,8 @@ window.CICEK_SITE_CONTENT = {
     "heroTextFont": "Segoe UI",
     "heroTitleSize": 86,
     "heroTextSize": 14,
-    "brandLogoWidth": "250",
-    "footerLogoWidth": "200",
+    "brandLogoWidth": "200",
+    "footerLogoWidth": "150",
     "semtaLogoWidth": 90,
     "ink": "#17201e",
     "forest": "#183b34",
@@ -33,6 +33,44 @@ window.CICEK_SITE_CONTENT = {
           "heroTextSize": 14,
           "brandLogoWidth": 150,
           "footerLogoWidth": 120,
+          "semtaLogoWidth": 90,
+          "ink": "#17201e",
+          "forest": "#183b34",
+          "orange": "#d9793d",
+          "paper": "#f5f4ef"
+        }
+      },
+      {
+        "id": "theme-1792554346674",
+        "name": "V2",
+        "settings": {
+          "displayFont": "Segoe UI",
+          "bodyFont": "Segoe UI",
+          "heroTitleFont": "Segoe UI",
+          "heroTextFont": "Segoe UI",
+          "heroTitleSize": 86,
+          "heroTextSize": 14,
+          "brandLogoWidth": "200",
+          "footerLogoWidth": "150",
+          "semtaLogoWidth": 90,
+          "ink": "#17201e",
+          "forest": "#183b34",
+          "orange": "#d9793d",
+          "paper": "#f5f4ef"
+        }
+      },
+      {
+        "id": "theme-1792554417173",
+        "name": "Kucuk",
+        "settings": {
+          "displayFont": "Segoe UI",
+          "bodyFont": "Segoe UI",
+          "heroTitleFont": "Segoe UI",
+          "heroTextFont": "Segoe UI",
+          "heroTitleSize": 86,
+          "heroTextSize": 14,
+          "brandLogoWidth": "100",
+          "footerLogoWidth": "50",
           "semtaLogoWidth": 90,
           "ink": "#17201e",
           "forest": "#183b34",
@@ -137,19 +175,19 @@ window.CICEK_SITE_CONTENT = {
       {
         "category": "EĞİTİM · İSTANBUL",
         "title": "Galatasaray Üniversitesi",
-        "detail": "1.175.000 m² arazi üzerine kurulu devlet üniversitesinde 1000 kVA trafo gücü kullanılmış; orta gerilim kablolama ve trafo merkezi kurulmuştur.",
+        "detail": "Orta gerilim · Trafo merkezi",
         "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
       },
       {
         "category": "KONUT · ESENYURT",
         "title": "Akkoza Konutları",
-        "detail": "24 MVA güç için 17 farklı trafo merkezi kurulmuş; OG proje, orta gerilim kablolama ve trafo merkezi çalışmaları yapılmıştır. Proje 7.500 konut, alışveriş merkezi, okul, hastane, spor kulübü ve Festival Park alanlarını kapsar.",
+        "detail": "OG proje · 17 trafo merkezi",
         "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
       },
       {
         "category": "TİCARİ · ESENYURT",
-        "title": "Akbatı AVM – Mavi Kule – Yeşil Kule",
-        "detail": "13,5 MVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. Alışveriş ve yaşam merkezi üzerinde 21 katlı Mavi Kule ve 11 katlı Yeşil Kule yer alır.",
+        "title": "Akbatı AVM ve Yaşam Merkezi",
+        "detail": "OG proje · Trafo merkezi",
         "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
       },
       {
@@ -285,7 +323,7 @@ window.CICEK_SITE_CONTENT = {
     "title": "Orta Direk",
     "copy": "Elektrik mühendisliği alanındaki deneyimimizin yanında, grup şirketimiz Orta Direk; aydınlatma, enerji nakil ve özel amaçlı direklerin üretim ve ihracatını gerçekleştiriyor.",
     "linkText": "Orta Direk’i keşfedin",
-    "url": "ortadirek.com.tr"
+    "url": "https://www.ortadirek.com.tr"
   },
   "contact": {
     "eyebrow": "İLETİŞİM",
