@@ -2,10 +2,9 @@
   "use strict";
 
   const storageKey = "cicek-site-draft-v1";
-  const themeStorageKey = "cicek-site-theme-version-v2";
+  const themeStorageKey = "cicek-site-theme-version-v1";
   const content = JSON.parse(JSON.stringify(window.CICEK_SITE_CONTENT || {}));
   let slideIndex = 0;
-  let activeFontScale = 1;
   let activeContent = content;
 
   function getValue(path, root = content) {
@@ -13,15 +12,7 @@
   }
 
   function migrateLegacyDraft(saved) {
-    const ensureV4Theme = (data) => {
-      data.settings ||= {};
-      if (!Number.isFinite(Number(data.settings.fontScale))) data.settings.fontScale = content.settings.fontScale || 1;
-      data.settings.versions ||= [];
-      const v4 = content.settings.versions?.find((item) => item.id === "v4");
-      if (v4 && !data.settings.versions.some((item) => item.id === "v4")) data.settings.versions.push(JSON.parse(JSON.stringify(v4)));
-      return data;
-    };
-    if (saved?._schemaVersion === content._schemaVersion) return ensureV4Theme(saved);
+    if (saved?._schemaVersion === content._schemaVersion) return saved;
     const merge = (target, source) => {
       Object.keys(source || {}).forEach((key) => {
         if (Array.isArray(source[key]) && Array.isArray(target[key])) {
@@ -55,7 +46,7 @@
     (migrated.hero.slides || []).forEach((slide) => { if (/^assets\/(?:3\.jpg|projects\/)/i.test(slide.image || "")) slide.image = defaultImage; });
     (migrated.projects.items || []).forEach((project) => { if (/^assets\/projects\//i.test(project.image || "")) project.image = defaultImage; });
     migrated._schemaVersion = content._schemaVersion;
-    return ensureV4Theme(migrated);
+    return migrated;
   }
 
   function isSafeImage(value) {
@@ -71,7 +62,11 @@
     document.querySelectorAll("[data-company-link]").forEach((link) => { link.target = target; });
   }
   function applyContent(data, ignoreSavedTheme = false) {
-    if (data?.partner?.url === "https://www.ortadirek.com.tr") data.partner.url = "http://www.ortadirek.com.tr";
+    if (data?.partner?.url === "https://www.ortadirek.com.tr") data.partner.url = "http://www.ortadirek.com.tr";    if (data?.footer) {
+      if (data.footer.link1Url === "#hakkimizda") data.footer.link1Url = "index.html#hakkimizda";
+      if (data.footer.link2Url === "#hizmetler") data.footer.link2Url = "index.html#hizmetler";
+      if (data.footer.link3Url === "#iletisim") data.footer.link3Url = "contact.html";
+    }
     activeContent = data;
     document.querySelectorAll("[data-content]").forEach((element) => {
       const value = getValue(element.dataset.content, data);
@@ -112,13 +107,12 @@
     populateThemeVersions(settings.versions || []);
     let chosenVersion = "";
     if (!ignoreSavedTheme) {
-      try { chosenVersion = localStorage.getItem(themeStorageKey) || "v4"; } catch (error) { chosenVersion = "v4"; }
+      try { chosenVersion = localStorage.getItem(themeStorageKey) || ""; } catch (error) { /* Browser storage may be disabled. */ }
     }
     const version = (settings.versions || []).find((item) => item.id === chosenVersion);
     applySettings(version?.settings || settings);
     renderProjects(data);
     renderSlide(slideIndex, false);
-    applySiteFontScale(activeFontScale);
   }
 
   function renderProjects(data) {
@@ -187,7 +181,6 @@
       preview.src = sourceImage?.currentSrc || sourceImage?.src || "";
       preview.alt = sourceImage?.alt || popup.querySelector(".project-modal-panel h3").textContent;
       popup.hidden = false;
-      applySiteFontScale(activeFontScale);
     });
     document.addEventListener("keydown", (event) => { if (event.key === "Escape" && !popup.hidden) close(); });
   }
@@ -202,24 +195,12 @@
     const bounded = (value, min, max, fallback) => `${Math.max(min, Math.min(max, Number(value) || fallback))}px`;
     root.style.setProperty("--hero-title-size", bounded(settings.heroTitleSize, 44, 120, 86));
     root.style.setProperty("--hero-text-size", bounded(settings.heroTextSize, 10, 28, 14));
-    activeFontScale = Math.max(1, Math.min(2, Number(settings.fontScale) || 1));
     root.style.setProperty("--brand-logo-width", bounded(settings.brandLogoWidth, 50, 320, 150));
     root.style.setProperty("--footer-logo-width", bounded(settings.footerLogoWidth, 50, 240, 120));
     root.style.setProperty("--semta-logo-width", bounded(settings.semtaLogoWidth, 40, 240, 90));
     ["ink", "forest", "orange", "paper"].forEach((key) => {
       if (/^#[0-9a-f]{6}$/i.test(settings[key] || "")) root.style.setProperty(`--${key}`, settings[key]);
     });
-  }
-
-  function applySiteFontScale(scale) {
-    const factor = Math.max(1, Math.min(2, Number(scale) || 1));
-    const elements = Array.from(document.body.querySelectorAll("*")).filter((element) => {
-      if (element.closest(".hero, script, style, noscript, svg, .service-icon, .brand-mark, .project-modal-close, .round-link, .project-arrows")) return false;
-      return Array.from(element.childNodes).some((node) => node.nodeType === Node.TEXT_NODE && node.textContent.trim());
-    });
-    elements.forEach((element) => element.style.removeProperty("font-size"));
-    const baseSizes = elements.map((element) => [element, parseFloat(getComputedStyle(element).fontSize)]);
-    baseSizes.forEach(([element, size]) => { if (Number.isFinite(size)) element.style.fontSize = `${size * factor}px`; });
   }
 
   function populateThemeVersions(versions) {
@@ -236,14 +217,11 @@
     let stored = "";
     try { stored = localStorage.getItem(themeStorageKey) || ""; } catch (error) { /* Browser storage may be disabled. */ }
     const available = Array.from(select.options).some((option) => option.value === stored);
-    const hasPrevious = Array.from(select.options).some((option) => option.value === previous);
-    const fallback = Array.from(select.options).some((option) => option.value === "v4") ? "v4" : "current";
-    select.value = available ? stored : (hasPrevious ? previous : fallback);
+    select.value = available ? stored : (Array.from(select.options).some((option) => option.value === previous) ? previous : "current");
     select.onchange = () => {
       const version = versions.find((item) => item.id === select.value);
       const settings = activeContent.settings || {};
       applySettings(version?.settings || settings);
-      applySiteFontScale(activeFontScale);
       try { localStorage.setItem(themeStorageKey, select.value); } catch (error) { /* Browser storage may be disabled. */ }
     };
   }
@@ -283,9 +261,32 @@
     if (total) total.textContent = String(slides.length).padStart(2, "0");
   }
 
+  document.querySelectorAll("[data-header-style]").forEach((button) => button.addEventListener("click", () => {
+    const style = button.dataset.headerStyle === "white" ? "white" : "watermark";
+    document.body.classList.toggle("references-white-header", style === "white");
+    document.querySelectorAll("[data-header-style]").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+    try { localStorage.setItem("cicek-references-header-style", style); } catch (error) { /* Optional preference. */ }
+  }));
+  if (document.body.classList.contains("references-page")) {
+    try {
+      if (localStorage.getItem("cicek-references-header-style") === "white") {
+        document.body.classList.add("references-white-header");
+        document.querySelector('[data-header-style="white"]')?.setAttribute("aria-pressed", "true");
+        document.querySelector('[data-header-style="watermark"]')?.setAttribute("aria-pressed", "false");
+      }
+    } catch (error) { /* Optional preference. */ }
+  }
+  document.querySelector("#contact-form")?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const fields = new FormData(event.currentTarget);
+    const message = ["Çiçek Elektrik web sitesi iletişim formu", "Ad: " + fields.get("name"), "Telefon veya e-posta: " + fields.get("reply"), "Konu: " + fields.get("subject"), "Mesaj: " + fields.get("message")].join("\n");
+    const status = document.querySelector(".form-status");
+    if (status) status.textContent = "WhatsApp açılıyor. Mesajı göndermeden önce kontrol edebilirsiniz.";
+    window.open("https://wa.me/902126764000?text=" + encodeURIComponent(message), "_blank", "noopener");
+  });
+
   bindProjectPopup();
   window.addEventListener("resize", updateCompanyLinkTargets, { passive: true });
-  window.addEventListener("resize", () => applySiteFontScale(activeFontScale), { passive: true });
 
   document.querySelector(".hero-prev")?.addEventListener("click", () => renderSlide(slideIndex - 1));
   document.querySelector(".hero-next")?.addEventListener("click", () => renderSlide(slideIndex + 1));
