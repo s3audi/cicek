@@ -195,6 +195,7 @@
     const bounded = (value, min, max, fallback) => `${Math.max(min, Math.min(max, Number(value) || fallback))}px`;
     root.style.setProperty("--hero-title-size", bounded(settings.heroTitleSize, 44, 120, 86));
     root.style.setProperty("--hero-text-size", bounded(settings.heroTextSize, 10, 28, 14));
+    document.body.classList.toggle("references-white-header", settings.headerStyle === "white");
     root.style.setProperty("--brand-logo-width", bounded(settings.brandLogoWidth, 50, 320, 150));
     root.style.setProperty("--footer-logo-width", bounded(settings.footerLogoWidth, 50, 240, 120));
     root.style.setProperty("--semta-logo-width", bounded(settings.semtaLogoWidth, 40, 240, 90));
@@ -261,21 +262,6 @@
     if (total) total.textContent = String(slides.length).padStart(2, "0");
   }
 
-  document.querySelectorAll("[data-header-style]").forEach((button) => button.addEventListener("click", () => {
-    const style = button.dataset.headerStyle === "white" ? "white" : "watermark";
-    document.body.classList.toggle("references-white-header", style === "white");
-    document.querySelectorAll("[data-header-style]").forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
-    try { localStorage.setItem("cicek-references-header-style", style); } catch (error) { /* Optional preference. */ }
-  }));
-  if (document.body.classList.contains("references-page")) {
-    try {
-      if (localStorage.getItem("cicek-references-header-style") === "white") {
-        document.body.classList.add("references-white-header");
-        document.querySelector('[data-header-style="white"]')?.setAttribute("aria-pressed", "true");
-        document.querySelector('[data-header-style="watermark"]')?.setAttribute("aria-pressed", "false");
-      }
-    } catch (error) { /* Optional preference. */ }
-  }
   document.querySelector("#contact-form")?.addEventListener("submit", (event) => {
     event.preventDefault();
     const fields = new FormData(event.currentTarget);

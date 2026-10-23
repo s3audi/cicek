@@ -21,6 +21,7 @@
       { key: "settings.heroTextFont", label: "Slider metin fontu", type: "select", options: ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"] },
       { key: "settings.heroTitleSize", label: "Slider başlık boyutu (px)", type: "number" },
       { key: "settings.heroTextSize", label: "Slider açıklama boyutu (px)", type: "number" },
+      { key: "settings.headerStyle", label: "Üst alan tasarımı", type: "select", options: [{ value: "watermark", label: "Filigranlı koyu başlık" }, { value: "white", label: "Beyaz zeminli başlık" }] },
       { key: "settings.brandLogoWidth", label: "Üst logo genişliği (px)", type: "number" },
       { key: "settings.footerLogoWidth", label: "Footer logo genişliği (px)", type: "number" },
       { key: "settings.semtaLogoWidth", label: "Semtasoft logo genişliği (px)", type: "number" },
@@ -313,8 +314,8 @@
     if (input instanceof HTMLInputElement) input.type = ["number", "color"].includes(field.type) ? field.type : "text";
     if (input instanceof HTMLSelectElement) field.options.forEach((value) => {
       const option = document.createElement("option");
-      option.value = value;
-      option.textContent = value;
+      option.value = typeof value === "string" ? value : value.value;
+      option.textContent = typeof value === "string" ? value : value.label;
       input.append(option);
     });
     input.id = fieldId;
@@ -507,13 +508,6 @@
     }
   } catch (error) {
     showStatus("Tarayıcı kaydı okunamadı; varsayılan içerik gösteriliyor.", true);
-  }
-  state.settings ||= {};
-  if (!Number.isFinite(Number(state.settings.fontScale))) state.settings.fontScale = defaults.settings.fontScale || 1;
-  state.settings.versions ||= [];
-  const v4Theme = defaults.settings.versions?.find((version) => version.id === "v4");
-  if (v4Theme && !state.settings.versions.some((version) => version.id === "v4")) {
-    state.settings.versions.push(JSON.parse(JSON.stringify(v4Theme)));
   }
   if (state.partner?.url === "https://www.ortadirek.com.tr") state.partner.url = "http://www.ortadirek.com.tr";
   renderForm();
