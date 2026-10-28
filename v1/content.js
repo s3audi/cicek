@@ -121,7 +121,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "AG · OG · Trafo merkezleri"
       },
       {
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
+        "image": "https://i.ibb.co/JYM07DC/69f9a96c27e5.png",
         "eyebrow": "HER DETAYDA MÜHENDİSLİK",
         "titleBefore": "İşleyen",
         "titleAccent": "yapıların",
