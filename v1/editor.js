@@ -338,6 +338,21 @@
     const body = document.createElement("div");
     body.className = "group-body";
     group.fields.forEach((field) => body.append(makeField(field)));
+    state.settings.defaultTheme ||= defaults.settings.defaultTheme || "current";
+    if (state.settings.defaultTheme !== "current" && !(state.settings.versions || []).some((version) => version.id === state.settings.defaultTheme)) {
+      state.settings.defaultTheme = "current";
+    }
+    const defaultThemeField = makeField({
+      key: "settings.defaultTheme",
+      label: "İlk açılışta gösterilecek tema",
+      type: "select",
+      full: true,
+      options: [
+        { value: "current", label: "Güncel ayarlar" },
+        ...(state.settings.versions || []).map((version) => ({ value: version.id, label: version.name }))
+      ]
+    });
+    body.append(defaultThemeField);
     const saveField = document.createElement("div");
     saveField.className = "field full version-save-row";
     const label = document.createElement("label");
@@ -358,6 +373,7 @@
       if (!versionName) { showStatus("Önce sürüm adı yazın.", true); name.focus(); return; }
       const settings = JSON.parse(JSON.stringify(state.settings));
       delete settings.versions;
+      delete settings.defaultTheme;
       state.settings.versions ||= [];
       if (state.settings.versions.length >= 12) { showStatus("En fazla 12 tema sürümü kaydedilebilir.", true); return; }
       state.settings.versions.push({ id: `theme-${Date.now()}`, name: versionName, settings });
@@ -397,7 +413,12 @@
         remove.type = "button";
         remove.className = "slide-remove";
         remove.textContent = "Sil";
-        remove.addEventListener("click", () => { state.settings.versions.splice(index, 1); renderForm(); });
+        remove.addEventListener("click", () => {
+          const removed = state.settings.versions.splice(index, 1)[0];
+          if (removed && state.settings.defaultTheme === removed.id) state.settings.defaultTheme = "current";
+          saveDraft(true);
+          renderForm();
+        });
         row.append(remove);
       }
       versionList.append(row);

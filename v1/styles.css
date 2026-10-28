@@ -39,3 +39,36 @@
 
 .references-white-header .home-header{background:var(--paper);color:var(--ink);box-shadow:0 4px 24px rgba(0,0,0,.08)}.references-white-header .home-header .brand,.references-white-header .home-header .nav a,.references-white-header .home-header .header-cta{color:var(--ink)}.references-white-header .home-header .brand-sub{color:#68726b}
 @media(max-width:650px){.references-white-header .home-header .nav{background:var(--paper)}.references-white-header .home-header .nav a{color:#46514c}}
+/* V1.22: keep mobile navigation evenly aligned and inside the viewport. */
+@media(max-width:650px){
+  .home-header .nav,.references-header .nav{
+    position:absolute;top:100%;left:0;right:0;width:100%;
+    display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+    align-items:center;justify-items:center;gap:0;
+    padding:13px 10px;overflow:hidden;
+  }
+  .home-header .nav a,.references-header .nav a{
+    display:block;width:100%;min-width:0;padding:2px 1px;
+    text-align:center;white-space:nowrap;line-height:1.2;
+    font-size:clamp(9px,2.8vw,11px);letter-spacing:0;
+  }
+  .home-header::after,.references-header::after{display:none}
+}
+/* V1.23: scale header logos with the available mobile width and height. */
+@media(max-width:650px){
+  .site-header{height:auto;min-height:clamp(64px,18vw,72px);padding-top:6px;padding-bottom:6px}
+  .site-header .brand{min-width:0;flex:0 1 auto;max-width:calc(100% - 48px)}
+  .site-header .brand-logo{width:auto;max-width:min(var(--brand-logo-width,150px),52vw);max-height:clamp(30px,min(12vw,6svh),48px);height:auto;object-fit:contain;flex:0 1 auto}
+  .site-header .mobile-phone{flex:0 0 auto}
+  .home-header,.references-header{height:auto;min-height:clamp(64px,18vw,72px)}
+  .home-header .nav,.references-header .nav{top:100%}
+}
+/* V1.24: keep the mobile project CTA on its own right-aligned row under navigation. */
+@media(max-width:650px){
+  .site-header .header-cta{
+    position:absolute;top:calc(100% + 44px);right:5%;z-index:2;
+    display:inline-flex;align-items:center;min-height:34px;padding:7px 0;
+    font-size:10px;white-space:nowrap;
+  }
+  .site-header:not(.home-header):not(.references-header){margin-bottom:78px}
+}

@@ -12,7 +12,12 @@
   }
 
   function migrateLegacyDraft(saved) {
-    if (saved?._schemaVersion === content._schemaVersion) return saved;
+    if (saved?._schemaVersion === content._schemaVersion) {
+      saved.settings ||= {};
+      saved.settings.headerStyle ||= content.settings.headerStyle || "watermark";
+      saved.settings.defaultTheme ||= content.settings.defaultTheme || "current";
+      return saved;
+    }
     const merge = (target, source) => {
       Object.keys(source || {}).forEach((key) => {
         if (Array.isArray(source[key]) && Array.isArray(target[key])) {
@@ -104,10 +109,10 @@
     });
     updateCompanyLinkTargets();
     const settings = data.settings || {};
-    populateThemeVersions(settings.versions || []);
-    let chosenVersion = "";
+    populateThemeVersions(settings.versions || [], settings.defaultTheme || "current");
+    let chosenVersion = settings.defaultTheme || "current";
     if (!ignoreSavedTheme) {
-      try { chosenVersion = localStorage.getItem(themeStorageKey) || ""; } catch (error) { /* Browser storage may be disabled. */ }
+      try { chosenVersion = localStorage.getItem(themeStorageKey) || chosenVersion; } catch (error) { /* Browser storage may be disabled. */ }
     }
     const version = (settings.versions || []).find((item) => item.id === chosenVersion);
     applySettings(version?.settings || settings);
@@ -204,7 +209,7 @@
     });
   }
 
-  function populateThemeVersions(versions) {
+  function populateThemeVersions(versions, defaultTheme = "current") {
     const select = document.querySelector(".theme-version-select");
     if (!select) return;
     const previous = select.value;
@@ -218,7 +223,9 @@
     let stored = "";
     try { stored = localStorage.getItem(themeStorageKey) || ""; } catch (error) { /* Browser storage may be disabled. */ }
     const available = Array.from(select.options).some((option) => option.value === stored);
-    select.value = available ? stored : (Array.from(select.options).some((option) => option.value === previous) ? previous : "current");
+    const hasPrevious = Array.from(select.options).some((option) => option.value === previous);
+    const hasDefault = Array.from(select.options).some((option) => option.value === defaultTheme);
+    select.value = available ? stored : (hasPrevious ? previous : (hasDefault ? defaultTheme : "current"));
     select.onchange = () => {
       const version = versions.find((item) => item.id === select.value);
       const settings = activeContent.settings || {};
