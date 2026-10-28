@@ -13,12 +13,44 @@ window.CICEK_SITE_CONTENT = {
     "heroTextFont": "Segoe UI",
     "heroTitleSize": 86,
     "heroTextSize": 14,
-    "brandLogoWidth": "250",
-    "footerLogoWidth": "200",
+    "headerStyle": "white",
+    "defaultTheme": "current",
+    "fontSizes": {
+      "menu": {
+        "windows": 12,
+        "mobile": 10
+      },
+      "topbar": {
+        "windows": 10,
+        "mobile": 8
+      },
+      "small": {
+        "windows": 9,
+        "mobile": 8
+      },
+      "body": {
+        "windows": 12,
+        "mobile": 11
+      },
+      "card": {
+        "windows": 9,
+        "mobile": 9
+      },
+      "action": {
+        "windows": 15,
+        "mobile": 15
+      },
+      "footer": {
+        "windows": 12,
+        "mobile": 10
+      }
+    },
+    "brandLogoWidth": 150,
+    "footerLogoWidth": 120,
     "semtaLogoWidth": 90,
     "ink": "#17201e",
     "forest": "#183b34",
-    "orange": "#3fd982",
+    "orange": "#d9793d",
     "paper": "#f5f4ef",
     "versions": [
       {
@@ -31,6 +63,37 @@ window.CICEK_SITE_CONTENT = {
           "heroTextFont": "Segoe UI",
           "heroTitleSize": 86,
           "heroTextSize": 14,
+          "headerStyle": "watermark",
+          "fontSizes": {
+            "menu": {
+              "windows": 12,
+              "mobile": 10
+            },
+            "topbar": {
+              "windows": 10,
+              "mobile": 8
+            },
+            "small": {
+              "windows": 9,
+              "mobile": 8
+            },
+            "body": {
+              "windows": 12,
+              "mobile": 11
+            },
+            "card": {
+              "windows": 9,
+              "mobile": 9
+            },
+            "action": {
+              "windows": 10,
+              "mobile": 9
+            },
+            "footer": {
+              "windows": 9,
+              "mobile": 8
+            }
+          },
           "brandLogoWidth": 150,
           "footerLogoWidth": 120,
           "semtaLogoWidth": 90,
@@ -39,46 +102,18 @@ window.CICEK_SITE_CONTENT = {
           "orange": "#d9793d",
           "paper": "#f5f4ef"
         }
-      },
-      {
-        "id": "theme-1792554032376",
-        "name": "V2",
-        "settings": {
-          "displayFont": "Segoe UI",
-          "bodyFont": "Segoe UI",
-          "heroTitleFont": "Segoe UI",
-          "heroTextFont": "Segoe UI",
-          "heroTitleSize": 86,
-          "heroTextSize": 14,
-          "brandLogoWidth": "250",
-          "footerLogoWidth": "200",
-          "semtaLogoWidth": 90,
-          "ink": "#17201e",
-          "forest": "#183b34",
-          "orange": "#d9793d",
-          "paper": "#f5f4ef"
-        }
-      },
-      {
-        "id": "theme-1792556470814",
-        "name": "V3Yesil",
-        "settings": {
-          "displayFont": "Segoe UI",
-          "bodyFont": "Segoe UI",
-          "heroTitleFont": "Segoe UI",
-          "heroTextFont": "Segoe UI",
-          "heroTitleSize": 86,
-          "heroTextSize": 14,
-          "brandLogoWidth": "250",
-          "footerLogoWidth": "200",
-          "semtaLogoWidth": 90,
-          "ink": "#17201e",
-          "forest": "#183b34",
-          "orange": "#3fd982",
-          "paper": "#f5f4ef"
-        }
       }
-    ]
+    ],
+    "logoSizes": {
+      "header": {
+        "desktop": 150,
+        "mobile": 250
+      },
+      "footer": {
+        "desktop": 120,
+        "mobile": 200
+      }
+    }
   },
   "hero": {
     "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
@@ -101,7 +136,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "Planlama · Uygulama · Devreye alma"
       },
       {
-        "image": "https://i.ibb.co/jpBX0Vw/4dfaf9a2ce2a.png",
+        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
         "eyebrow": "PROJEDEN UYGULAMAYA",
         "titleBefore": "Enerjinin",
         "titleAccent": "her aşamasında",
@@ -111,7 +146,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "Tasarım · Koordinasyon · Uygulama"
       },
       {
-        "image": "https://i.ibb.co/NnQDGNfW/66f5a05e0afa.png",
+        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
         "eyebrow": "GÜÇLÜ ALTYAPI, KALICI GÜVEN",
         "titleBefore": "Geleceği",
         "titleAccent": "sağlam",
@@ -121,7 +156,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "AG · OG · Trafo merkezleri"
       },
       {
-        "image": "https://i.ibb.co/JYM07DC/69f9a96c27e5.png",
+        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
         "eyebrow": "HER DETAYDA MÜHENDİSLİK",
         "titleBefore": "İşleyen",
         "titleAccent": "yapıların",
@@ -135,9 +170,9 @@ window.CICEK_SITE_CONTENT = {
   "about": {
     "since": "1985’ten beri",
     "eyebrow": "ÇİÇEK ELEKTRİK SAN. VE TİC. LTD. ŞTİ.",
-    "titleBefore": "İyi mühendislik,",
-    "titleAccent": "görünmeden",
-    "titleAfter": " işini yapar.",
+    "titleBefore": "İyi mühendis,",
+    "titleAccent": "görünmese de",
+    "titleAfter": " işini layıkıyla yapar.",
     "copy": "1985’ten bu yana elektrik enerjisinin üretiminden dağıtımına uzanan projelerde yer alıyoruz. Deneyimli ekibimizle, standartlara bağlı ve uzun ömürlü sistemler tasarlıyor, kuruyor ve devreye alıyoruz.",
     "years": "40",
     "stat": "yıllık mühendislik\ndeneyimi"
@@ -182,13 +217,13 @@ window.CICEK_SITE_CONTENT = {
         "category": "KONUT · ESENYURT",
         "title": "Akkoza Konutları",
         "detail": "24 MVA güç için 17 farklı trafo merkezi kurulmuş; OG proje, orta gerilim kablolama ve trafo merkezi çalışmaları yapılmıştır. Proje 7.500 konut, alışveriş merkezi, okul, hastane, spor kulübü ve Festival Park alanlarını kapsar.",
-        "image": "https://i.ibb.co/N2sZ1nzw/b5fa1b6ffb54.png"
+        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
       },
       {
         "category": "TİCARİ · ESENYURT",
         "title": "Akbatı AVM – Mavi Kule – Yeşil Kule",
         "detail": "13,5 MVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. Alışveriş ve yaşam merkezi üzerinde 21 katlı Mavi Kule ve 11 katlı Yeşil Kule yer alır.",
-        "image": "https://i.ibb.co/NnQDGNfW/66f5a05e0afa.png"
+        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
       },
       {
         "category": "KONUT · HARAMİDERE",
@@ -339,11 +374,11 @@ window.CICEK_SITE_CONTENT = {
     "copyright": "© 2026 Çiçek Elektrik San. ve Tic. Ltd. Şti.",
     "address": "Hastane Mah. Şeyh Şamil Caddesi, No: 10/B, Hadımköy – Arnavutköy, İstanbul",
     "link1Text": "Hakkımızda",
-    "link1Url": "#hakkimizda",
+    "link1Url": "index.html#hakkimizda",
     "link2Text": "Hizmetler",
-    "link2Url": "#hizmetler",
+    "link2Url": "index.html#hizmetler",
     "link3Text": "İletişim",
-    "link3Url": "#iletisim",
+    "link3Url": "contact.html",
     "semtaText": "Designed by Semtasoft",
     "semtaUrl": "https://semtasoft.com",
     "semtaLogo": ""

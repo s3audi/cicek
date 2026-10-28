@@ -16,6 +16,10 @@
       saved.settings ||= {};
       saved.settings.headerStyle ||= content.settings.headerStyle || "watermark";
       saved.settings.defaultTheme ||= content.settings.defaultTheme || "current";
+      saved.settings.fontSizes ||= JSON.parse(JSON.stringify(content.settings.fontSizes || {}));
+      Object.entries(content.settings.fontSizes || {}).forEach(([key, value]) => {
+        saved.settings.fontSizes[key] = { ...value, ...(saved.settings.fontSizes[key] || {}) };
+      });
       return saved;
     }
     const merge = (target, source) => {
@@ -201,8 +205,21 @@
     root.style.setProperty("--hero-title-size", bounded(settings.heroTitleSize, 44, 120, 86));
     root.style.setProperty("--hero-text-size", bounded(settings.heroTextSize, 10, 28, 14));
     document.body.classList.toggle("references-white-header", settings.headerStyle === "white");
-    root.style.setProperty("--brand-logo-width", bounded(settings.brandLogoWidth, 50, 320, 150));
-    root.style.setProperty("--footer-logo-width", bounded(settings.footerLogoWidth, 50, 240, 120));
+    const defaultFontSizes = content.settings.fontSizes || {};
+    Object.entries(defaultFontSizes).forEach(([key, defaults]) => {
+      const values = { ...defaults, ...((settings.fontSizes || {})[key] || {}) };
+      root.style.setProperty(`--font-size-${key}-windows`, bounded(values.windows, 7, 30, defaults.windows));
+      root.style.setProperty(`--font-size-${key}-mobile`, bounded(values.mobile, 7, 30, defaults.mobile));
+    });
+    const logoSizes = settings.logoSizes || {};
+    const headerDesktop = logoSizes.header?.desktop ?? settings.brandLogoWidth;
+    const headerMobile = logoSizes.header?.mobile ?? headerDesktop;
+    const footerDesktop = logoSizes.footer?.desktop ?? settings.footerLogoWidth;
+    const footerMobile = logoSizes.footer?.mobile ?? footerDesktop;
+    root.style.setProperty("--brand-logo-width", bounded(headerDesktop, 50, 320, 150));
+    root.style.setProperty("--brand-logo-width-mobile", bounded(headerMobile, 50, 320, 150));
+    root.style.setProperty("--footer-logo-width", bounded(footerDesktop, 40, 240, 120));
+    root.style.setProperty("--footer-logo-width-mobile", bounded(footerMobile, 40, 240, 120));
     root.style.setProperty("--semta-logo-width", bounded(settings.semtaLogoWidth, 40, 240, 90));
     ["ink", "forest", "orange", "paper"].forEach((key) => {
       if (/^#[0-9a-f]{6}$/i.test(settings[key] || "")) root.style.setProperty(`--${key}`, settings[key]);
@@ -299,6 +316,12 @@
   } catch (error) {
     applyContent(content);
   }
+
+  window.addEventListener("storage", (event) => {
+    if (event.key !== storageKey || !event.newValue) return;
+    try { applyContent(migrateLegacyDraft(JSON.parse(event.newValue)), true); }
+    catch (error) { /* Ignore incomplete drafts while another tab is saving. */ }
+  });
 
   if (new URLSearchParams(window.location.search).has("editorPreview") && window.opener) {
     window.opener.postMessage({ type: "cicek-preview-ready" }, "*");

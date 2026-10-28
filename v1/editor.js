@@ -7,6 +7,7 @@
   const status = document.getElementById("editor-status");
   let state = JSON.parse(JSON.stringify(defaults));
   let statusTimer;
+  let previewWindow = null;
 
   const groups = [
     { title: "MARKA VE LOGO", fields: [
@@ -14,7 +15,7 @@
       { key: "brand.name", label: "Marka adı" }, { key: "brand.sub", label: "Alt satır" }
     ]},
     { title: "AÇILIŞ SLIDER’I", slides: true },
-    { title: "TEMA VE GÖRÜNÜM", themeSettings: true, fields: [
+    { title: "TEMA VE GÖRÜNÜM", themeSettings: true, logoSizeSettings: true, fields: [
       { key: "settings.displayFont", label: "Başlık font ailesi", type: "select", options: ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"] },
       { key: "settings.bodyFont", label: "Gövde font ailesi", type: "select", options: ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"] },
       { key: "settings.heroTitleFont", label: "Slider başlık fontu", type: "select", options: ["Segoe UI", "Arial", "Georgia", "Verdana", "Tahoma", "Trebuchet MS", "system-ui"] },
@@ -22,14 +23,13 @@
       { key: "settings.heroTitleSize", label: "Slider başlık boyutu (px)", type: "number" },
       { key: "settings.heroTextSize", label: "Slider açıklama boyutu (px)", type: "number" },
       { key: "settings.headerStyle", label: "Üst alan tasarımı", type: "select", options: [{ value: "watermark", label: "Filigranlı koyu başlık" }, { value: "white", label: "Beyaz zeminli başlık" }] },
-      { key: "settings.brandLogoWidth", label: "Üst logo genişliği (px)", type: "number" },
-      { key: "settings.footerLogoWidth", label: "Footer logo genişliği (px)", type: "number" },
       { key: "settings.semtaLogoWidth", label: "Semtasoft logo genişliği (px)", type: "number" },
       { key: "settings.ink", label: "Ana metin rengi", type: "color" },
       { key: "settings.forest", label: "Kurumsal koyu renk", type: "color" },
       { key: "settings.orange", label: "Vurgu rengi", type: "color" },
       { key: "settings.paper", label: "Açık zemin rengi", type: "color" }
     ]},
+    { title: "YAZI BOYUTLARI", fontSizeSettings: true },
     { title: "HAKKIMIZDA", fields: [
       { key: "about.since", label: "Kuruluş satırı" }, { key: "about.eyebrow", label: "Küçük başlık" },
       { key: "about.titleBefore", label: "Başlık — ilk bölüm" }, { key: "about.titleAccent", label: "Vurgulu bölüm" },
@@ -70,6 +70,48 @@
     ]}
   ];
 
+  const groupIds = {
+    "MARKA VE LOGO": "editor-brand", "AÇILIŞ SLIDER’I": "editor-hero",
+    "TEMA VE GÖRÜNÜM": "editor-theme", "YAZI BOYUTLARI": "editor-font-sizes",
+    "HAKKIMIZDA": "editor-about", "HİZMETLER": "editor-services",
+    "PROJE REFERANSLARI": "editor-projects", "GRUP ŞİRKETİ": "editor-partner",
+    "İLETİŞİM VE ALT BİLGİ": "editor-contact"
+  };
+  const fontSizeRows = [
+    ["menu", "Menü bağlantıları"], ["topbar", "Üst bilgi bandı"],
+    ["small", "Küçük başlıklar"], ["body", "Gövde açıklamaları"],
+    ["card", "Kart / proje detayları"], ["action", "Buton ve bağlantılar"],
+    ["footer", "Alt bilgi"]
+  ];
+  const groupFontSizes = {
+    "MARKA VE LOGO": ["menu", "topbar"],
+    "AÇILIŞ SLIDER’I": ["action"],
+    "HAKKIMIZDA": ["small", "body"],
+    "HİZMETLER": ["small", "body"],
+    "PROJE REFERANSLARI": ["small", "card", "action"],
+    "GRUP ŞİRKETİ": ["small", "body", "action"],
+    "İLETİŞİM VE ALT BİLGİ": ["small", "body", "action", "footer"]
+  };
+
+  function createSection(group) {
+    const section = document.createElement("section");
+    section.className = "editor-group";
+    section.id = groupIds[group.title] || "";
+    return section;
+  }
+
+  function appendLocalFontSizes(section, group) {
+    const keys = groupFontSizes[group.title];
+    if (!keys?.length) return;
+    const controls = document.createElement("div");
+    controls.className = "section-font-controls";
+    const label = document.createElement("span");
+    label.className = "field-label";
+    label.textContent = "Bu bölümde kullanılan yazı boyutları (px)";
+    controls.append(label, createFontSizeTable(keys));
+    section.append(controls);
+  }
+
   function get(path, object = state) {
     return path.split(".").reduce((value, key) => value == null ? undefined : value[key], object);
   }
@@ -85,8 +127,7 @@
   }
 
   function renderSlides(group) {
-    const section = document.createElement("section");
-    section.className = "editor-group";
+    const section = createSection(group);
     const heading = document.createElement("div");
     heading.className = "group-title";
     const line = document.createElement("i");
@@ -135,13 +176,14 @@
       renderForm();
     });
     body.append(add);
-    section.append(heading, body);
+    section.append(heading);
+    appendLocalFontSizes(section, group);
+    section.append(body);
     return section;
   }
 
   function renderProjects(group) {
-    const section = document.createElement("section");
-    section.className = "editor-group";
+    const section = createSection(group);
     const heading = document.createElement("div");
     heading.className = "group-title";
     const line = document.createElement("i");
@@ -185,7 +227,9 @@
       renderForm();
     });
     body.append(add);
-    section.append(heading, body);
+    section.append(heading);
+    appendLocalFontSizes(section, group);
+    section.append(body);
     return section;
   }
 
@@ -326,9 +370,117 @@
     return wrapper;
   }
 
+  function createFontSizeTable(keys) {
+    state.settings.fontSizes ||= JSON.parse(JSON.stringify(defaults.settings.fontSizes || {}));
+    const table = document.createElement("table");
+    table.className = "font-size-settings";
+    table.innerHTML = "<thead><tr><th>YAZI TÜRÜ</th><th>Windows Size</th><th>Mobil Size</th></tr></thead>";
+    const body = document.createElement("tbody");
+    keys.forEach((key) => {
+      const labelText = fontSizeRows.find(([rowKey]) => rowKey === key)?.[1] || key;
+      state.settings.fontSizes[key] ||= JSON.parse(JSON.stringify((defaults.settings.fontSizes || {})[key] || { windows: 10, mobile: 9 }));
+      const row = document.createElement("tr");
+      const titleCell = document.createElement("th");
+      titleCell.scope = "row";
+      titleCell.textContent = labelText;
+      row.append(titleCell);
+      ["windows", "mobile"].forEach((device) => {
+        const cell = document.createElement("td");
+        const input = document.createElement("input");
+        input.type = "number";
+        input.min = "7";
+        input.max = "30";
+        input.step = "0.5";
+        input.value = state.settings.fontSizes[key][device];
+        input.dataset.field = `settings.fontSizes.${key}.${device}`;
+        input.dataset.fontSizeRole = key;
+        input.dataset.fontSizeDevice = device;
+        input.setAttribute("aria-label", `${labelText} — ${device === "windows" ? "Windows" : "Mobil"} px`);
+        input.addEventListener("input", () => {
+          state.settings.fontSizes[key][device] = Number(input.value) || 0;
+          form.querySelectorAll(`[data-font-size-role="${key}"][data-font-size-device="${device}"]`).forEach((mirror) => {
+            if (mirror !== input) mirror.value = input.value;
+          });
+        });
+        cell.append(input);
+        row.append(cell);
+      });
+      body.append(row);
+    });
+    table.append(body);
+    return table;
+  }
+
+  function renderFontSizeSettings(group) {
+    const section = createSection(group);
+    const heading = document.createElement("div");
+    heading.className = "group-title";
+    const line = document.createElement("i");
+    const title = document.createElement("span");
+    title.textContent = group.title;
+    heading.append(line, title);
+    const body = document.createElement("div");
+    body.className = "group-body";
+    const fontSizeField = document.createElement("div");
+    fontSizeField.className = "field full font-size-field";
+    const fontSizeLabel = document.createElement("span");
+    fontSizeLabel.className = "field-label";
+    fontSizeLabel.textContent = "Windows ve mobil yazı boyutları (px)";
+    fontSizeField.append(fontSizeLabel);
+    fontSizeField.append(createFontSizeTable(fontSizeRows.map(([key]) => key)));
+    body.append(fontSizeField);
+
+    section.append(heading, body);
+    return section;
+  }
+
+  function renderLogoSizeSettings() {
+    const field = document.createElement("div");
+    field.className = "field full logo-size-field";
+    const label = document.createElement("span");
+    label.className = "field-label";
+    label.textContent = "Üst ve alt logo boyutları (px)";
+    state.settings.logoSizes ||= {
+      header: { desktop: Number(state.settings.brandLogoWidth) || 150, mobile: Number(state.settings.brandLogoWidth) || 150 },
+      footer: { desktop: Number(state.settings.footerLogoWidth) || 120, mobile: Number(state.settings.footerLogoWidth) || 120 }
+    };
+    const rows = [
+      ["header", "Üst logo"], ["footer", "Alt logo / footer"]
+    ];
+    const table = document.createElement("table");
+    table.className = "font-size-settings logo-size-settings";
+    table.innerHTML = "<thead><tr><th>LOGO</th><th>Masaüstü</th><th>Mobil</th></tr></thead>";
+    const body = document.createElement("tbody");
+    rows.forEach(([key, rowLabel]) => {
+      state.settings.logoSizes[key] ||= { desktop: key === "header" ? 150 : 120, mobile: key === "header" ? 150 : 120 };
+      const row = document.createElement("tr");
+      const heading = document.createElement("th");
+      heading.scope = "row";
+      heading.textContent = rowLabel;
+      row.append(heading);
+      ["desktop", "mobile"].forEach((device) => {
+        const cell = document.createElement("td");
+        const input = document.createElement("input");
+        input.type = "number";
+        input.min = key === "header" ? "50" : "40";
+        input.max = key === "header" ? "320" : "240";
+        input.step = "1";
+        input.value = state.settings.logoSizes[key][device];
+        input.dataset.field = `settings.logoSizes.${key}.${device}`;
+        input.setAttribute("aria-label", `${rowLabel} — ${device === "desktop" ? "masaüstü" : "mobil"} genişliği (px)`);
+        input.addEventListener("input", () => { state.settings.logoSizes[key][device] = Number(input.value) || 0; });
+        cell.append(input);
+        row.append(cell);
+      });
+      body.append(row);
+    });
+    table.append(body);
+    field.append(label, table);
+    return field;
+  }
+
   function renderThemeSettings(group) {
-    const section = document.createElement("section");
-    section.className = "editor-group";
+    const section = createSection(group);
     const heading = document.createElement("div");
     heading.className = "group-title";
     const line = document.createElement("i");
@@ -338,6 +490,7 @@
     const body = document.createElement("div");
     body.className = "group-body";
     group.fields.forEach((field) => body.append(makeField(field)));
+    if (group.logoSizeSettings) body.append(renderLogoSizeSettings());
     state.settings.defaultTheme ||= defaults.settings.defaultTheme || "current";
     if (state.settings.defaultTheme !== "current" && !(state.settings.versions || []).some((version) => version.id === state.settings.defaultTheme)) {
       state.settings.defaultTheme = "current";
@@ -433,9 +586,9 @@
     groups.forEach((group) => {
       if (group.slides) { form.append(renderSlides(group)); return; }
       if (group.themeSettings) { form.append(renderThemeSettings(group)); return; }
+      if (group.fontSizeSettings) { form.append(renderFontSizeSettings(group)); return; }
       if (group.projects) { form.append(renderProjects(group)); return; }
-      const section = document.createElement("section");
-      section.className = "editor-group";
+      const section = createSection(group);
       const heading = document.createElement("div");
       heading.className = "group-title";
       const line = document.createElement("i");
@@ -445,7 +598,9 @@
       const body = document.createElement("div");
       body.className = "group-body";
       group.fields.forEach((field) => body.append(makeField(field)));
-      section.append(heading, body);
+      section.append(heading);
+      appendLocalFontSizes(section, group);
+      section.append(body);
       form.append(section);
     });
   }
@@ -453,7 +608,9 @@
   function saveDraft(quiet = false) {
     try {
       localStorage.setItem(storageKey, JSON.stringify(state));
-      if (!quiet) showStatus("Taslak bu tarayıcıya kaydedildi.");
+      const previewUpdated = previewWindow && !previewWindow.closed;
+      if (previewUpdated) previewWindow.postMessage({ type: "cicek-editor-preview", content: state }, "*");
+      if (!quiet) showStatus("Taslak kaydedildi; aynı tarayıcıdaki açık site sekmeleri güncellendi.");
       return true;
     } catch (error) {
       showStatus("Taslak kaydedilemedi. Görselleri küçültüp yeniden deneyin.", true);
@@ -462,17 +619,23 @@
   }
 
   document.getElementById("save-button").addEventListener("click", () => saveDraft());
+  document.getElementById("sticky-save-button").addEventListener("click", () => document.getElementById("save-button").click());
+  document.getElementById("sticky-preview-button").addEventListener("click", () => document.getElementById("preview-button").click());
 
   document.getElementById("preview-button").addEventListener("click", () => {
     saveDraft(true);
-    let previewWindow;
     const onReady = (event) => {
       if (event.source !== previewWindow || event.data?.type !== "cicek-preview-ready") return;
       previewWindow.postMessage({ type: "cicek-editor-preview", content: state }, "*");
       window.removeEventListener("message", onReady);
     };
     window.addEventListener("message", onReady);
-    previewWindow = window.open("index.html?editorPreview=1", "_blank");
+    if (previewWindow && !previewWindow.closed) {
+      previewWindow.location.href = new URL("index.html?editorPreview=1", window.location.href).href;
+      previewWindow.focus();
+    } else {
+      previewWindow = window.open("index.html?editorPreview=1", "cicek-site-preview");
+    }
     if (!previewWindow) {
       window.removeEventListener("message", onReady);
       showStatus("Önizleme açılamadı. Tarayıcı açılır pencereleri engelliyor olabilir.", true);
