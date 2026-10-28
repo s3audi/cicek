@@ -116,7 +116,7 @@ window.CICEK_SITE_CONTENT = {
     }
   },
   "hero": {
-    "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
+    "image": "/images/Slidercicek1.jpg",
     "eyebrow": "1985’TEN BERİ GÜVENLE ENERJİ VERİYORUZ",
     "titleBefore": "Yapıların",
     "titleAccent": "güvenle",
@@ -126,7 +126,7 @@ window.CICEK_SITE_CONTENT = {
     "captionDetail": "Planlama · Uygulama · Devreye alma",
     "slides": [
       {
-        "image": "/images/Slidecicek1.jpg",
+        "image": "/images/Slidercicek1.jpg",
         "eyebrow": "1985’TEN BERİ GÜVENLE ENERJİ VERİYORUZ",
         "titleBefore": "Yapıların",
         "titleAccent": "güvenle",
@@ -136,7 +136,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "Planlama · Uygulama · Devreye alma"
       },
       {
-        "image": "/images/Slidecicek2.jpg",
+        "image": "/images/Slidercicek2.jpg",
         "eyebrow": "PROJEDEN UYGULAMAYA",
         "titleBefore": "Enerjinin",
         "titleAccent": "her aşamasında",
@@ -146,7 +146,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "Tasarım · Koordinasyon · Uygulama"
       },
       {
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
+        "image": "/images/Slidercicek3.jpg",
         "eyebrow": "GÜÇLÜ ALTYAPI, KALICI GÜVEN",
         "titleBefore": "Geleceği",
         "titleAccent": "sağlam",
@@ -156,7 +156,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "AG · OG · Trafo merkezleri"
       },
       {
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
+        "image": "/images/Slidercicek4.jpg",
         "eyebrow": "HER DETAYDA MÜHENDİSLİK",
         "titleBefore": "İşleyen",
         "titleAccent": "yapıların",
