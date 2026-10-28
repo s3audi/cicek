@@ -126,7 +126,7 @@ window.CICEK_SITE_CONTENT = {
     "captionDetail": "Planlama · Uygulama · Devreye alma",
     "slides": [
       {
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
+        "image": "/images/Slidecicek1.jpg",
         "eyebrow": "1985’TEN BERİ GÜVENLE ENERJİ VERİYORUZ",
         "titleBefore": "Yapıların",
         "titleAccent": "güvenle",
@@ -136,7 +136,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "Planlama · Uygulama · Devreye alma"
       },
       {
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png",
+        "image": "/images/Slidecicek2.jpg",
         "eyebrow": "PROJEDEN UYGULAMAYA",
         "titleBefore": "Enerjinin",
         "titleAccent": "her aşamasında",
