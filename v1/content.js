@@ -126,7 +126,7 @@ window.CICEK_SITE_CONTENT = {
     "captionDetail": "Planlama · Uygulama · Devreye alma",
     "slides": [
       {
-        "image": "/v1/images/Slidercicek1.jpg",
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg",
         "eyebrow": "1985’TEN BERİ GÜVENLE ENERJİ VERİYORUZ",
         "titleBefore": "Yapıların",
         "titleAccent": "güvenle",
@@ -136,7 +136,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "Planlama · Uygulama · Devreye alma"
       },
       {
-        "image": "/v1/images/Slidercicek2.jpg",
+        "image": "https://assets.cicekelektrik.net/Slidercicek2.jpg",
         "eyebrow": "PROJEDEN UYGULAMAYA",
         "titleBefore": "Enerjinin",
         "titleAccent": "her aşamasında",
@@ -146,7 +146,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "Tasarım · Koordinasyon · Uygulama"
       },
       {
-        "image": "/v1/images/Slidercicek3.jpg",
+        "image": "https://assets.cicekelektrik.net/Slidercicek3.jpg",
         "eyebrow": "GÜÇLÜ ALTYAPI, KALICI GÜVEN",
         "titleBefore": "Geleceği",
         "titleAccent": "sağlam",
@@ -156,7 +156,7 @@ window.CICEK_SITE_CONTENT = {
         "captionDetail": "AG · OG · Trafo merkezleri"
       },
       {
-        "image": "/v1/images/Slidercicek4.jpg",
+        "image": "https://assets.cicekelektrik.net/Slidercicek4.jpg",
         "eyebrow": "HER DETAYDA MÜHENDİSLİK",
         "titleBefore": "İşleyen",
         "titleAccent": "yapıların",
@@ -211,145 +211,145 @@ window.CICEK_SITE_CONTENT = {
         "category": "EĞİTİM · İSTANBUL",
         "title": "Galatasaray Üniversitesi",
         "detail": "1.175.000 m² arazi üzerine kurulu devlet üniversitesinde 1000 kVA trafo gücü kullanılmış; orta gerilim kablolama ve trafo merkezi kurulmuştur.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · ESENYURT",
         "title": "Akkoza Konutları",
         "detail": "24 MVA güç için 17 farklı trafo merkezi kurulmuş; OG proje, orta gerilim kablolama ve trafo merkezi çalışmaları yapılmıştır. Proje 7.500 konut, alışveriş merkezi, okul, hastane, spor kulübü ve Festival Park alanlarını kapsar.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "TİCARİ · ESENYURT",
         "title": "Akbatı AVM – Mavi Kule – Yeşil Kule",
         "detail": "13,5 MVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. Alışveriş ve yaşam merkezi üzerinde 21 katlı Mavi Kule ve 11 katlı Yeşil Kule yer alır.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · HARAMİDERE",
         "title": "Regnum Astrum Towers",
         "detail": "4800 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. 34 bin m² alandaki 5 blokta 1285 daire bulunur.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "OTEL · DATÇA",
         "title": "Datça Perili Bay Resort",
         "detail": "Otelde orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır. Tesis 18 dubleks ve 144 standart oda kapasitelidir.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "OTEL · KUŞADASI",
         "title": "Kuşadası Golf Spa Resort",
         "detail": "1.650.000 m² alan üzerine kurulu tesiste orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır. Resort toplam 475 oda kapasitelidir.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "OTEL · GALATAPORT",
         "title": "Nidya Hotel Galataport",
         "detail": "Otelin tüm AG ve OG elektrik tesisatı yapılmıştır. Tesis 120 oda, spa, fitness, toplantı odaları ve restoranlara sahiptir.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "OTEL · BODRUM",
         "title": "Bodrum Holiday Resort & Spa",
         "detail": "414 yataklı otel için 2500 kVA güç kapsamında OG proje, orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "OFİS · BOMONTİ",
         "title": "Sinpaş GYO – Fer Yapı Tower",
         "detail": "30 katlı tek blokta 2500 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi inşaatı yapılmıştır. Proje tipi ofis-çarşı olup 213 bağımsız bölüm içerir.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · HALKALI",
         "title": "Tema Park İstanbul",
         "detail": "80 MVA güç talebiyle OG proje, orta gerilim kablolama ve trafo merkezi imalatı gerçekleştirilmiştir. Proje 4.026 konuttan oluşur.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · BEYLİKDÜZÜ",
         "title": "Innovia 1–2–3–4–5",
         "detail": "34.800 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır. Beş etapta 14.000 konut, iş yeri, otel ve AVM kapsamaktadır.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "TİCARİ · İSTANBUL",
         "title": "Autopia",
         "detail": "8 MVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. Otomobil fuarı olarak tasarlanan yapı 117.000 m² alana ve 470 mağazaya sahiptir.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · ESENYURT",
         "title": "Beyaz Kule",
         "detail": "1600 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. Akbatı Beyaz Kule yaklaşık 100 rezidanstan oluşur.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "TİCARİ · İSTANBUL",
         "title": "Marmara Park",
         "detail": "16.800 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır. Alışveriş merkezi 200’den fazla mağaza ve 4.000 araçlık otopark içerir.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · AVCILAR",
         "title": "Avcılar Park",
         "detail": "2850 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır. 19 blokta 275 daire, 50 mağaza ve bir süpermarket bulunur.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "SANAYİ · İSTANBUL",
         "title": "Yıldız Gaz Armatürleri",
         "detail": "18.000 m² kapalı alana sahip fabrika için 2000 kVA güç kapsamında OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · ESENYURT",
         "title": "Solarkent",
         "detail": "3000 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi imalatı yapılmıştır. Projede 866 konut ve güneş enerjisi santrali bulunur.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "SAĞLIK · İSTANBUL",
         "title": "Beymed Göz Hastanesi",
         "detail": "12.000 m² kapalı alana sahip hastane için 1000 kVA güç kapsamında OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "OTOMOTİV · İSTANBUL",
         "title": "BİKA Oto Servis",
         "detail": "16.000 m² kapalı alana sahip tesis için 1600 kVA güç kapsamında OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "SANAYİ · İSTANBUL",
         "title": "Yılmaz Kimya",
         "detail": "26.000 m² kapalı alana sahip ofis, depo ve sanayi alanlı fabrika binası için 2500 kVA güç kapsamında OG proje, kablolama ve trafo merkezi yapılmıştır.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "LOJİSTİK · ESENYURT",
         "title": "Kiler Lojistik Merkezi",
         "detail": "1600 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi yapılmıştır. Yaklaşık 100.000 m² alandaki depo ve antrepo projesi Kiler Grubu genel müdürlük binasını da içerir.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · BAHÇEŞEHİR",
         "title": "Mesa Mesken Bahçeşehir Evleri",
         "detail": "Projede AG talep ve OG trafo merkezi imalatları yapılmıştır. 17.858 m² alan üzerine giriş + 23 katlı iki blok ve 182 konut planlanmıştır.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KARMA KULLANIM · ESENYURT",
         "title": "City Center Esenyurt",
         "detail": "Proje için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. Konut, ofis, alışveriş merkezi ve kamu hizmet alanlarını bir araya getirir.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       },
       {
         "category": "KONUT · İSTİNYE",
         "title": "Qent İstinye",
         "detail": "İstinye’de 3.070 m² alanda konumlanan projede farklı konut tipleri, sosyal alanlar, havuzlar, fitness ve otoparklar yer alır.",
-        "image": "https://i.ibb.co/XrzmF4nz/a61cb4d9a42c.png"
+        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
       }
     ]
   },
