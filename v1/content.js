@@ -217,19 +217,19 @@ window.CICEK_SITE_CONTENT = {
         "category": "KONUT · ESENYURT",
         "title": "Akkoza Konutları",
         "detail": "24 MVA güç için 17 farklı trafo merkezi kurulmuş; OG proje, orta gerilim kablolama ve trafo merkezi çalışmaları yapılmıştır. Proje 7.500 konut, alışveriş merkezi, okul, hastane, spor kulübü ve Festival Park alanlarını kapsar.",
-        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
+        "image": "https://assets.cicekelektrik.net/Slidercicek3.jpg"
       },
       {
         "category": "TİCARİ · ESENYURT",
         "title": "Akbatı AVM – Mavi Kule – Yeşil Kule",
         "detail": "13,5 MVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. Alışveriş ve yaşam merkezi üzerinde 21 katlı Mavi Kule ve 11 katlı Yeşil Kule yer alır.",
-        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
+        "image": "https://assets.cicekelektrik.net/Slidercicek2.jpg"
       },
       {
         "category": "KONUT · HARAMİDERE",
         "title": "Regnum Astrum Towers",
         "detail": "4800 kVA güç için OG proje, orta gerilim kablolama ve trafo merkezi kurulmuştur. 34 bin m² alandaki 5 blokta 1285 daire bulunur.",
-        "image": "https://assets.cicekelektrik.net/Slidercicek1.jpg"
+        "image": "https://assets.cicekelektrik.net/Slidercicek4.jpg"
       },
       {
         "category": "OTEL · DATÇA",
